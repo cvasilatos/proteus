@@ -1,7 +1,7 @@
 import logging
 import random
 import socket
-from typing import TYPE_CHECKING, cast
+from typing import TYPE_CHECKING, Any, cast
 
 from icsd_surrogate.model.raw_field import FieldBehavior, RawField
 
@@ -45,12 +45,12 @@ class DynamicFieldAnalyzer:
     def analyze_responses(self) -> None:
         self.logger.info("Response distribution from server:")
         for response_hex in self._responses:
-            count = self._responses.count(response_hex)
+            count: int = self._responses.count(response_hex)
             self.logger.info(f"Response: {response_hex}, Count: {count}")
 
     def cluster_responses_plotly(self, seed_hex: str) -> None:
         self.logger.info(f"Clustering responses for seed: {seed_hex} with {len(self._responses)} unique responses...")
-        data = []
+        data: list[dict[str, Any]] = []
 
         # 1. Analyze the Seed
         try:
