@@ -11,11 +11,10 @@ from dataclasses import asdict
 from pathlib import Path
 from typing import TYPE_CHECKING, cast
 
-from pygments.unistring import No
-
 if TYPE_CHECKING:
     from types import ModuleType
 
+from logger_captain.logger import CustomLogger
 from protocol_validator.protocol_info import ProtocolInfo
 from protocol_validator.validator_base import ValidatorBase
 from rich.console import Console
@@ -23,7 +22,6 @@ from rich.table import Table
 
 from icsd_surrogate.analyzers.dynamic_field_analyzer import DynamicFieldAnalyzer
 from icsd_surrogate.analyzers.protocol_explorer import ProtocolExplorer
-from icsd_surrogate.cfg.log_configuration import CustomLogger
 from icsd_surrogate.model.raw_field import EnhancedJSONEncoder, FieldBehavior, RawField
 
 
@@ -67,7 +65,7 @@ class ProtocolFuzzer:
 
         self._print_plan(explorer.raw_fields)
 
-        with open(f"outputs/{self._protocol_info.name}_raw_fields.json", "w") as f:
+        with Path(f"outputs/{self._protocol_info.name}_raw_fields.json").open("w") as f:
             json.dump([asdict(u) for u in explorer.raw_fields], f, indent=4, cls=EnhancedJSONEncoder)
 
         self.logger.info(f"[+] Saved raw fields to outputs/{self._protocol_info.name}_raw_fields.json")
@@ -93,10 +91,10 @@ class ProtocolFuzzer:
         if not pivot_field:
             raise ValueError("No suitable pivot field found for structural analysis.")
 
-        new_seeds = []
+        new_seeds: list[str] = []
 
         # Identify Length fields (CONSTRAINED fields before the pivot)
-        length_fields = [f for f in fields_json if f.behavior == FieldBehavior.CONSTRAINED and f.relative_pos < pivot_field.relative_pos]
+        length_fields: list[RawField] = [f for f in fields_json if f.behavior == FieldBehavior.CONSTRAINED and f.relative_pos < pivot_field.relative_pos]
 
         for val in ["01", "02", "03", "04", "05", "06"]:
             # Start with the raw bytes up to the pivot
@@ -122,9 +120,13 @@ class ProtocolFuzzer:
                     try:
                         self.validate_seed("localhost", 5020, candidate_pkt)
                         new_seeds.append(candidate_pkt.hex())
-                    except:
-                        pass
+                    except Exception as e:
+                        self.logger.trace(f"Validation failed for candidate packet: {candidate_pkt.hex()} - Error: {e}")
 
+        self.find_structural_variants2(new_seeds, pivot_field)
+        return new_seeds
+
+    def find_structural_variants2(self, new_seeds: list[str], pivot_field: RawField) -> None:
         for seed in new_seeds:
             explorer = ProtocolExplorer(seed, self._protocol_info.name)
             try:
@@ -145,12 +147,9 @@ class ProtocolFuzzer:
             except Exception as e:
                 self.logger.warning(f"Failed to dissect new seed {seed}: {e}")
 
-        return new_seeds
-
     def validate_seed(self, target_ip: str, target_port: int, seed_bytes: bytes) -> dict:
-        """Sends a seed and classifies the response to determine validity."""
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        s.settimeout(0.01)  # 2 second timeout
+        s.settimeout(0.01)
 
         try:
             s.connect((target_ip, target_port))

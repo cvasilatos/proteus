@@ -6,7 +6,7 @@ from typing import TYPE_CHECKING, Any, cast
 from icsd_surrogate.model.raw_field import FieldBehavior, RawField
 
 if TYPE_CHECKING:
-    from icsd_surrogate.cfg.log_configuration import CustomLogger
+    from logger_captain.logger import CustomLogger
 
 import difflib
 
