@@ -106,6 +106,7 @@ class ProtocolFuzzer:
         length_fields = self._identify_length_fields(fields_json, pivot_field)
         new_seeds = self._generate_variant_candidates(fields_json, pivot_field, length_fields)
         
+        # Process new seeds for further analysis (side effects: prints and logs results)
         self._find_structural_variants2(new_seeds, pivot_field)
         return new_seeds
 
@@ -172,7 +173,8 @@ class ProtocolFuzzer:
                 # Fix length fields to match current packet size
                 for len_field in length_fields:
                     candidate_pkt = PacketManipulator.fix_length_field(candidate_pkt, len_field)
-                    
+                
+                # Validate after all length fields have been fixed
                 try:
                     self._validate_seed(DEFAULT_HOST, DEFAULT_PORT, candidate_pkt)
                     new_seeds.append(candidate_pkt.hex())

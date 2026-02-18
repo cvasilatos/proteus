@@ -113,15 +113,41 @@ class PacketManipulator:
             elif "crc" in field.name.lower() and target_field.name != field.name:
                 start = field.relative_pos
                 end = start + field.size
-                crc_value = dnp3_crc_simple(payload[prev:start])
+                crc_value = PacketManipulator._calculate_dnp3_crc(payload[prev:start])
                 prev = end
                 payload = payload[:start] + crc_value.to_bytes(field.size, byteorder="little") + payload[end:]
 
         return payload
 
+    @staticmethod
+    def _calculate_dnp3_crc(data_part: bytearray) -> int:
+        """Calculate DNP3 CRC for a data segment.
+        
+        Args:
+            data_part: Data to calculate CRC for
+            
+        Returns:
+            CRC value as integer
+        """
+        crc = 0x0000
+        polynomial = 0xA6BC
 
+        for byte in data_part:
+            crc ^= byte
+            for _ in range(8):
+                if crc & 1:
+                    crc = (crc >> 1) ^ polynomial
+                else:
+                    crc >>= 1
+
+        return (~crc) & 0xFFFF
+
+
+# Keep module-level function for backward compatibility if needed elsewhere
 def dnp3_crc_simple(data_part: bytearray) -> int:
     """Calculate DNP3 CRC for a data segment.
+    
+    Deprecated: Use PacketManipulator._calculate_dnp3_crc() instead.
     
     Args:
         data_part: Data to calculate CRC for
@@ -129,15 +155,4 @@ def dnp3_crc_simple(data_part: bytearray) -> int:
     Returns:
         CRC value as integer
     """
-    crc = 0x0000
-    polynomial = 0xA6BC
-
-    for byte in data_part:
-        crc ^= byte
-        for _ in range(8):
-            if crc & 1:
-                crc = (crc >> 1) ^ polynomial
-            else:
-                crc >>= 1
-
-    return (~crc) & 0xFFFF
+    return PacketManipulator._calculate_dnp3_crc(data_part)
