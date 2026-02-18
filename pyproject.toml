@@ -38,8 +38,8 @@ protocol-server = { path = "../../../projects/protocol-server/dist/protocol_serv
 [tool.ruff]
 line-length = 180
 target-version = "py312"
-exclude = [".git", ".mypy_cache", ".ruff_cache", "node_modules", "venv", ".venv"]
-include = ["src"]
+exclude = [".git", ".mypy_cache", ".ruff_cache"]
+src = ["./src"]
 
 [tool.ruff.lint]
 select = ["ALL"]
@@ -51,6 +51,7 @@ ignore = [
     "D101",
     "D102",
     "D103",
+    "D104",
     "D105",
     "D107",
     "INP001",

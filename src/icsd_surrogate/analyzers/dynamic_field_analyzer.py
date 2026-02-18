@@ -53,62 +53,54 @@ class DynamicFieldAnalyzer:
         data: list[dict[str, Any]] = []
 
         # 1. Analyze the Seed
-        try:
-            seed_bytes: bytes = bytes.fromhex(seed_hex)
-            seed_len: int = len(seed_bytes)
-            # Add Seed to dataset (as the baseline)
-            data.append({"hex": seed_hex, "length": seed_len, "similarity": 1.0, "type": "Seed (Valid)", "color": "gold", "size": 20})
-        except ValueError:
-            print("Error: Seed is not valid hex.")
-            return
+        seed_bytes: bytes = bytes.fromhex(seed_hex)
+        seed_len: int = len(seed_bytes)
+        # Add Seed to dataset (as the baseline)
+        data.append({"hex": seed_hex, "length": seed_len, "similarity": 1.0, "type": "Seed (Valid)", "color": "gold", "size": 20})
 
         # 2. Analyze the Mutations
         for resp in self._responses:
-            try:
-                # Convert to bytes for accurate length
-                resp_bytes = bytes.fromhex(resp)
-                curr_len = len(resp_bytes)
+            # Convert to bytes for accurate length
+            resp_bytes = bytes.fromhex(resp)
+            curr_len = len(resp_bytes)
 
-                # Calculate Structural Similarity
-                matcher = difflib.SequenceMatcher(None, seed_hex, resp)
-                ratio = matcher.ratio()
+            # Calculate Structural Similarity
+            matcher = difflib.SequenceMatcher(None, seed_hex, resp)
+            ratio = matcher.ratio()
 
-                # Classification Logic
-                # --------------------
-                # EXCEPTION: Usually fixed, short length (e.g., < 60% of seed)
-                if curr_len <= (seed_len * 0.6):
-                    category = "Likely Exception"
-                    color = "crimson"
-                    size = 12
-                # VALID VARIATION: High similarity, length matches seed
-                elif ratio > 0.85:
-                    category = "Valid Variation"
-                    color = "mediumseagreen"
-                    size = 10
-                # UNKNOWN: Weird length or middle-ground similarity
-                else:
-                    category = "Unknown / Outlier"
-                    color = "royalblue"
-                    size = 8
+            # Classification Logic
+            # --------------------
+            # EXCEPTION: Usually fixed, short length (e.g., < 60% of seed)
+            if curr_len <= (seed_len * 0.6):
+                category = "Likely Exception"
+                color = "crimson"
+                size = 12
+            # VALID VARIATION: High similarity, length matches seed
+            elif ratio > 0.85:
+                category = "Valid Variation"
+                color = "mediumseagreen"
+                size = 10
+            # UNKNOWN: Weird length or middle-ground similarity
+            else:
+                category = "Unknown / Outlier"
+                color = "royalblue"
+                size = 8
 
-                # Add 'Jitter' to avoid dots stacking perfectly on top of each other
-                # (Protocol responses often have identical length/similarity)
-                # jitter_x = random.uniform(-0.15, 0.15)
-                # jitter_y = random.uniform(-0.02, 0.02)
+            # Add 'Jitter' to avoid dots stacking perfectly on top of each other
+            # (Protocol responses often have identical length/similarity)
+            # jitter_x = random.uniform(-0.15, 0.15)
+            # jitter_y = random.uniform(-0.02, 0.02)
 
-                data.append(
-                    {
-                        "hex": resp,
-                        "length": curr_len,  # + jitter_x,
-                        "similarity": ratio,  # + jitter_y,
-                        "type": category,
-                        "color": color,
-                        "size": size,
-                    }
-                )
-
-            except ValueError:
-                continue  # Skip bad hex
+            data.append(
+                {
+                    "hex": resp,
+                    "length": curr_len,  # + jitter_x,
+                    "similarity": ratio,  # + jitter_y,
+                    "type": category,
+                    "color": color,
+                    "size": size,
+                }
+            )
 
         # 3. Build the Plotly Graph
         fig = go.Figure()

@@ -16,11 +16,11 @@ from icsd_surrogate.model.raw_field import FieldBehavior, RawField
 
 
 class ProtocolExplorer:
-    def __init__(self, seed: str, proto_filter: str) -> None:
+    def __init__(self, packet: str, proto_filter: str) -> None:
         logger_name = f"{self.__class__.__module__}.{self.__class__.__name__}"
         self.logger: CustomLogger = cast("CustomLogger", logging.getLogger(logger_name))
 
-        self._seed: str = seed
+        self._packet: str = packet
         self._protocol_info: ProtocolInfo = ProtocolInfo.from_name(proto_filter)
         self._raw_fields: list[RawField] = []
         self._validator = ValidatorBase(self._protocol_info.protocol_name)
@@ -29,13 +29,14 @@ class ProtocolExplorer:
         self.logger.info(f"[+] Connected to {self._protocol_info.name} server on port {self._protocol_info.custom_port}")
 
     def validate_seed(self) -> BaseLayer:
-        packet: BaseLayer = self._validator.validate(self._seed, is_request=True)
-        self._sock.send(bytes.fromhex(self._seed))
+        packet: BaseLayer = self._validator.validate(self._packet, is_request=True)
+        self._sock.send(bytes.fromhex(self._packet))
         response: bytes = self._sock.recv(1024)
+
         if len(response) > 0 and response.hex()[0:2] != "0000":
-            self.logger.info(f"[+] Dissecting packet: {self._seed} : {response.hex()} for protocol layers: {self._protocol_info.scapy_names}")
+            self.logger.info(f"[+] Dissecting packet: {self._packet} : {response.hex()} for protocol layers: {self._protocol_info.scapy_names}")
         else:
-            raise ValueError("No response or unexpected response for packet: {self._seed}, cannot dissect.")
+            raise ValueError(f"No response or unexpected response for packet: {self._packet}, cannot dissect.")
 
         return packet
 
