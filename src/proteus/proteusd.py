@@ -90,18 +90,6 @@ class ProtocolFuzzer:
 
         self.logger.info(f"[+] Saved raw fields to outputs/{self._protocol_info.name}_raw_fields.json")
 
-    def _construct_prefix(self, fields: list[RawField], stop_at_name: str) -> bytes:
-        """Construct packet bytes from fields up to a specific field.
-        
-        Args:
-            fields: List of raw fields
-            stop_at_name: Name of the field to stop at (not included)
-            
-        Returns:
-            Packet bytes constructed from fields
-        """
-        return PacketManipulator.construct_prefix(fields, stop_at_name)
-
     def _find_structural_variants(self, fields_json: list[RawField]) -> list[str]:
         """Find structural variants by testing different function codes and payload lengths.
         
@@ -173,7 +161,7 @@ class ProtocolFuzzer:
         new_seeds: list[str] = []
 
         for val in STRUCTURAL_VARIANT_FUNCTION_CODES:
-            base_packet = self._construct_prefix(fields, stop_at_name=pivot_field.name)
+            base_packet = PacketManipulator.construct_prefix(fields, stop_at_name=pivot_field.name)
             base_packet += bytes.fromhex(val)
             print(f"Base Packet with new pivot {val}: {base_packet.hex()}")
 

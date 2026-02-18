@@ -27,11 +27,11 @@ def is_valid_response(response: bytes) -> bool:
     response_hex = response.hex()
 
     # Check for invalid header (all zeros)
-    if response_hex[:len(INVALID_RESPONSE_PREFIX)] == INVALID_RESPONSE_PREFIX:
+    if response_hex.startswith(INVALID_RESPONSE_PREFIX):
         return False
 
     # Check if response is just an error code
-    if response_hex[-len(ERROR_CODE_SUFFIX):] == ERROR_CODE_SUFFIX and len(response_hex) <= 4:
+    if response_hex.endswith(ERROR_CODE_SUFFIX) and len(response_hex) <= 4:
         return False
 
     return True

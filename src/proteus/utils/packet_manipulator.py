@@ -33,6 +33,10 @@ class PacketManipulator:
     def fix_length_field(packet_bytes: bytes, len_field: RawField) -> bytes:
         """Fix length field in packet to match actual packet size.
         
+        Note: This includes protocol-specific logic (e.g., Modbus TCP) where
+        a zero byte is inserted before the length value and the position
+        calculations account for this.
+        
         Args:
             packet_bytes: The packet bytes
             len_field: The length field to fix
@@ -42,6 +46,7 @@ class PacketManipulator:
         """
         length_value = len(packet_bytes) - PACKET_LENGTH_OFFSET
         length_bytes = struct.pack(">H", length_value)
+        # Protocol-specific: skip one byte, insert zero, then length bytes
         start_pos = len_field.relative_pos + 1
         end_pos = start_pos + len_field.size + 1
         return packet_bytes[:start_pos] + b"\x00" + length_bytes + packet_bytes[end_pos:]
