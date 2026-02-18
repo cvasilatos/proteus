@@ -1,3 +1,5 @@
+"""ProteusD: A Protocol Fuzzer for ICS Protocols."""
+
 import argparse
 import json
 import logging
@@ -8,19 +10,30 @@ from dataclasses import asdict
 from pathlib import Path
 from typing import cast
 
-from logger_captain.logger import CustomLogger
-from protocol_server.starter import Starter
-from protocol_validator.protocol_info import ProtocolInfo
-from protocol_validator.validator_base import ValidatorBase
+from cursusd.starter import Starter
+from decimalog.logger import CustomLogger
+from praetor.praetord import ValidatorBase
+from praetor.protocol_info import ProtocolInfo
 
-from icsd_surrogate.analyzers.dynamic_field_analyzer import DynamicFieldAnalyzer
-from icsd_surrogate.analyzers.protocol_explorer import ProtocolExplorer
-from icsd_surrogate.model.raw_field import EnhancedJSONEncoder, FieldBehavior, RawField
-from icsd_surrogate.results.packet_struct import PacketStruct
+from proteus.analyzers.dynamic_field_analyzer import DynamicFieldAnalyzer
+from proteus.analyzers.protocol_explorer import ProtocolExplorer
+from proteus.model.raw_field import EnhancedJSONEncoder, FieldBehavior, RawField
+from proteus.results.packet_struct import PacketStruct
 
 
 class ProtocolFuzzer:
+    """Main class for the Protocol Fuzzer.
+
+    Responsible for loading seed packets, analyzing them to extract protocol fields, and applying fuzzing strategies based on the analysis
+    results. It manages the overall workflow of the fuzzing process, including validation of seeds, dissection of packets, and generation
+    of new test cases based on identified field behaviors and structural variants.
+    """
+
     def __init__(self, protocol: str) -> None:
+        """Initialize the ProtocolFuzzer with the specified protocol, setting up logging, protocol information, and a packet structure viewer for visualizing the analysis results.
+
+        This sets the stage for loading seed packets and performing analysis and fuzzing based on the protocol's characteristics.
+        """
         self.logger: CustomLogger = cast("CustomLogger", logging.getLogger(f"{self.__class__.__module__}.{self.__class__.__name__}"))
 
         self.logger.debug(f"[+] Initializing Protocol Fuzzer for protocol: {protocol}")
@@ -31,6 +44,11 @@ class ProtocolFuzzer:
         self._packet_struct_viewer = PacketStruct()
 
     def load_requests(self, pcap_path: str, packet: str) -> list[str]:
+        """Load seed packets from a specified pcap file or use a provided hex string as the seed packet.
+
+        This method checks if a pcap path is provided, and if so, it reads the requests from the file. If not,
+        it uses the provided hex string as the single seed packet for analysis and fuzzing.
+        """
         if pcap_path:
             requests: list[str] = []
             with Path(pcap_path).open(encoding="utf-8") as f:
@@ -41,6 +59,11 @@ class ProtocolFuzzer:
         return [packet.replace(" ", "")]
 
     def analyze_and_fuzz(self, packet: str) -> None:
+        """Analyze the provided seed packet to extract protocol fields and their behaviors, then apply fuzzing strategies based on the analysis results.
+
+        This includes dissecting the packet, classifying fields, generating new test cases based on structural variants,
+        and validating the new test cases against the target server to identify potential vulnerabilities.
+        """
         self.logger.info(f"[+] Analyzing seed packet: {packet}")
 
         explorer = ProtocolExplorer(packet, self._protocol_info.name)
@@ -57,7 +80,7 @@ class ProtocolFuzzer:
 
         self.logger.info(f"[+] Saved raw fields to outputs/{self._protocol_info.name}_raw_fields.json")
 
-    def construct_prefix(self, fields: list[RawField], stop_at_name: str) -> bytes:
+    def _construct_prefix(self, fields: list[RawField], stop_at_name: str) -> bytes:
         prefix = b""
         for field in fields:
             if field.name == stop_at_name:
@@ -68,7 +91,7 @@ class ProtocolFuzzer:
 
         return prefix
 
-    def find_structural_variants(self, fields_json: list[RawField]) -> list[str]:
+    def _find_structural_variants(self, fields_json: list[RawField]) -> list[str]:
         pivot_field: RawField | None = None
         for field in fields_json:
             if "modbus.func_code" in field.name:
@@ -86,7 +109,7 @@ class ProtocolFuzzer:
         for val in ["01", "02", "03", "04", "05", "06"]:
             # Start with the raw bytes up to the pivot
             # (You would need the original raw packet for this, or reconstruct from 'val' fields)
-            base_packet = self.construct_prefix(fields_json, stop_at_name=pivot_field.name)
+            base_packet: bytes = self._construct_prefix(fields_json, stop_at_name=pivot_field.name)
 
             # Append the new pivot value
             base_packet += bytes.fromhex(val)
@@ -103,17 +126,17 @@ class ProtocolFuzzer:
                 # 3. Fixup Lengths (The "Oracle")
                 # If we identified a length field earlier, update it to match current size
                 for len_field in length_fields:
-                    candidate_pkt = self.fix_length_field(candidate_pkt, len_field)
+                    candidate_pkt = self._fix_length_field(candidate_pkt, len_field)
                     try:
-                        self.validate_seed("localhost", 5020, candidate_pkt)
+                        self._validate_seed("localhost", 5020, candidate_pkt)
                         new_seeds.append(candidate_pkt.hex())
                     except Exception as e:
                         self.logger.trace(f"Validation failed for candidate packet: {candidate_pkt.hex()} - Error: {e}")
 
-        self.find_structural_variants2(new_seeds, pivot_field)
+        self._find_structural_variants2(new_seeds, pivot_field)
         return new_seeds
 
-    def find_structural_variants2(self, new_seeds: list[str], pivot_field: RawField) -> None:
+    def _find_structural_variants2(self, new_seeds: list[str], pivot_field: RawField) -> None:
         for seed in new_seeds:
             explorer = ProtocolExplorer(seed, self._protocol_info.name)
             try:
@@ -134,7 +157,7 @@ class ProtocolFuzzer:
             except Exception as e:
                 self.logger.warning(f"Failed to dissect new seed {seed}: {e}")
 
-    def validate_seed(self, target_ip: str, target_port: int, seed_bytes: bytes) -> dict:
+    def _validate_seed(self, target_ip: str, target_port: int, seed_bytes: bytes) -> dict:
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         s.settimeout(0.01)
 
@@ -164,7 +187,7 @@ class ProtocolFuzzer:
             "data": response.hex(),
         }
 
-    def fix_length_field(self, packet_bytes: bytes, len_field: RawField) -> bytes:
+    def _fix_length_field(self, packet_bytes: bytes, len_field: RawField) -> bytes:
         length_value = len(packet_bytes) - 6
         # Pack the length as a big-endian unsigned 16-bit integer
         length_bytes = struct.pack(">H", length_value)
@@ -175,6 +198,7 @@ class ProtocolFuzzer:
 
 
 def run(pcap_path: str, packet: str, protocol: str) -> None:
+    """Run the Protocol Fuzzer with the specified parameters, including loading seed packets, analyzing them, and applying fuzzing strategies."""
     fuzzer = ProtocolFuzzer(protocol)
     server_starter = Starter(protocol, 5020, delay=3)
     server_starter.start_server()
@@ -194,6 +218,6 @@ if __name__ == "__main__":
 
     args: argparse.Namespace = parser.parse_args()
 
-    CustomLogger.setup_logging("logs", "app.log", level=args.log_level)
+    CustomLogger.setup_logging("logs", "app", level=args.log_level)
 
     run(args.pcap, args.seed, args.protocol)

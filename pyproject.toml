@@ -6,10 +6,10 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/icsd_surrogate"]
+packages = ["src/proteus"]
 
 [project]
-name = "icsd_surrogate"
+name = "proteus"
 version = "0.1.0"
 description = "The ICSClone progression"
 requires-python = ">=3.12"
@@ -21,19 +21,19 @@ dependencies = [
     "pre-commit",
     "rich>=14.3.2",
     "plotly>=6.5.2",
-    "protocol-validator",
     "ty>=0.0.17",
-    "logger-captain",
-    "protocol-server",
+    "decimalog",
+    "praetor",
+    "cursusd",
 ]
 
 [tool.uv]
 managed = true
 
 [tool.uv.sources]
-protocol-validator = { path = "../../../projects/protocol-validator/dist/protocol_validator-0.1.0-py3-none-any.whl" }
-logger-captain = { path = "../../../projects/logger-captain/dist/logger_captain-0.1.0-py3-none-any.whl" }
-protocol-server = { path = "../../../projects/protocol-server/dist/protocol_server-0.1.0-py3-none-any.whl" }
+praetor = { git = "https://github.com/cvasilatos/praetor.git" }
+cursusd = { git = "https://github.com/cvasilatos/cursusd.git" }
+decimalog = { git = "https://github.com/cvasilatos/decimalog.git" }
 
 [tool.ruff]
 line-length = 180
@@ -47,13 +47,6 @@ ignore = [
     "PLR0913",
     "PLR2004",
     "G004",
-    "D100",
-    "D101",
-    "D102",
-    "D103",
-    "D104",
-    "D105",
-    "D107",
     "INP001",
     "ANN401",
     "COM812",

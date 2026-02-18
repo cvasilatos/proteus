@@ -1,0 +1,198 @@
+[
+    {
+        "name": "mbtcp.trans_id",
+        "wireshark_name": "mbtcp.trans_id",
+        "display_name": "Transaction Identifier: 84",
+        "pos": 54,
+        "relative_pos": 55,
+        "size": 2,
+        "val": "0054",
+        "valid_values": [
+            "22c0"
+        ],
+        "invalid_values": {},
+        "layer": "mbtcp",
+        "behavior": "FUZZABLE",
+        "accepted": false
+    },
+    {
+        "name": "mbtcp.prot_id",
+        "wireshark_name": "mbtcp.prot_id",
+        "display_name": "Protocol Identifier: 0",
+        "pos": 56,
+        "relative_pos": 2,
+        "size": 2,
+        "val": "0000",
+        "valid_values": [],
+        "invalid_values": {
+            "Validation failed, Error: Invalid protocol ID (Group: None, Severity: None)": [
+                "4ac7",
+                "c4a3",
+                "ac19",
+                "2510",
+                "b8d4",
+                "c486",
+                "c1cc",
+                "d805",
+                "55ab",
+                "4d91",
+                "6178"
+            ]
+        },
+        "layer": "mbtcp",
+        "behavior": "CONSTRAINED",
+        "accepted": false
+    },
+    {
+        "name": "mbtcp.len",
+        "wireshark_name": "mbtcp.len",
+        "display_name": "Length: 11",
+        "pos": 58,
+        "relative_pos": 4,
+        "size": 2,
+        "val": "000b",
+        "valid_values": [],
+        "invalid_values": {
+            "Validation failed, no layer '['mbtcp', 'modbus']'": [
+                "86d9",
+                "bb1c",
+                "89b9",
+                "4aab",
+                "3356",
+                "86ee",
+                "b67a",
+                "404a",
+                "45dc",
+                "3e4f",
+                "97ab"
+            ]
+        },
+        "layer": "mbtcp",
+        "behavior": "CONSTRAINED",
+        "accepted": false
+    },
+    {
+        "name": "mbtcp.unit_id",
+        "wireshark_name": "mbtcp.unit_id",
+        "display_name": "Unit Identifier: 0",
+        "pos": 60,
+        "relative_pos": 6,
+        "size": 1,
+        "val": "00",
+        "valid_values": [
+            "e8"
+        ],
+        "invalid_values": {},
+        "layer": "mbtcp",
+        "behavior": "FUZZABLE",
+        "accepted": false
+    },
+    {
+        "name": "modbus.func_code",
+        "wireshark_name": "modbus.func_code",
+        "display_name": ".001 0000 = Function Code: Write Multiple Registers (16)",
+        "pos": 61,
+        "relative_pos": 7,
+        "size": 1,
+        "val": "10",
+        "valid_values": [
+            "45"
+        ],
+        "invalid_values": {},
+        "layer": "modbus",
+        "behavior": "FUZZABLE",
+        "accepted": false
+    },
+    {
+        "name": "modbus.reference_num",
+        "wireshark_name": "modbus.reference_num",
+        "display_name": "Reference Number: 0",
+        "pos": 62,
+        "relative_pos": 8,
+        "size": 2,
+        "val": "0000",
+        "valid_values": [
+            "7287"
+        ],
+        "invalid_values": {},
+        "layer": "modbus",
+        "behavior": "FUZZABLE",
+        "accepted": false
+    },
+    {
+        "name": "modbus.word_cnt",
+        "wireshark_name": "modbus.word_cnt",
+        "display_name": "Word Count: 2",
+        "pos": 64,
+        "relative_pos": 10,
+        "size": 2,
+        "val": "0002",
+        "valid_values": [],
+        "invalid_values": {
+            "[Errno 32] Broken pipe": [
+                "7090",
+                "738b",
+                "c7b7",
+                "61cb",
+                "0623",
+                "f879",
+                "0377",
+                "cf06",
+                "3263",
+                "0299",
+                "232f"
+            ]
+        },
+        "layer": "modbus",
+        "behavior": "CONSTRAINED",
+        "accepted": false
+    },
+    {
+        "name": "modbus.byte_cnt",
+        "wireshark_name": "modbus.byte_cnt",
+        "display_name": "Byte Count: 4",
+        "pos": 66,
+        "relative_pos": 12,
+        "size": 1,
+        "val": "04",
+        "valid_values": [
+            "e3"
+        ],
+        "invalid_values": {},
+        "layer": "modbus",
+        "behavior": "FUZZABLE",
+        "accepted": false
+    },
+    {
+        "name": "modbus.regval_uint16",
+        "wireshark_name": "modbus.regval_uint16",
+        "display_name": "Register Value (UINT16): 65535",
+        "pos": 67,
+        "relative_pos": 13,
+        "size": 2,
+        "val": "ffff",
+        "valid_values": [
+            "afbb"
+        ],
+        "invalid_values": {},
+        "layer": "modbus",
+        "behavior": "FUZZABLE",
+        "accepted": false
+    },
+    {
+        "name": "modbus.regval_uint16",
+        "wireshark_name": "modbus.regval_uint16",
+        "display_name": "Register Value (UINT16): 65535",
+        "pos": 69,
+        "relative_pos": 15,
+        "size": 2,
+        "val": "ffff",
+        "valid_values": [
+            "9212"
+        ],
+        "invalid_values": {},
+        "layer": "modbus",
+        "behavior": "FUZZABLE",
+        "accepted": false
+    }
+]

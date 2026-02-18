@@ -1,11 +1,20 @@
+"""Module: packet_struct.py."""
+
 from rich.console import Console
 from rich.table import Table
 
-from icsd_surrogate.model.raw_field import RawField
+from proteus.model.raw_field import RawField
 
 
 class PacketStruct:
+    """Class representing the structure of a dissected packet, including its raw fields and methods for analyzing and visualizing the fuzzing plan based on field behaviors."""
+
     def print_plan(self, fuzzing_plan: list[RawField]) -> None:
+        """Print the fuzzing plan in a tabular format using the Rich library.
+
+        Displaying the behavior, field name, position, length, default value, valid values, invalid values,
+        and whether the field was accepted during validation.
+        """
         table = Table(title="Final Fuzzing Plan", show_header=True, header_style="bold magenta")
         table.add_column("BEHAVIOR")
         table.add_column("FIELD NAME")

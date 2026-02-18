@@ -1,8 +1,8 @@
 _commit: a046d85
 _src_path: https://github.com/cvasilatos/python-template-project.git
 description: The ICSClone progression
-project_name: ICSD Surrogate
-project_slug: icsd_surrogate
+project_name: Proteus
+project_slug: proteus
 python_minor_version: 3.14.3
 python_target_version: '314'
 python_version: '3.14'

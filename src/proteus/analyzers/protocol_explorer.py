@@ -1,3 +1,9 @@
+"""Module: protocol_explorer.py.
+
+Description: Implements the ProtocolExplorer class which takes a seed packet and protocol information, validates the seed, dissects it using PyShark,
+and extracts raw fields for further analysis. It also handles connection to the target server for validation and response analysis.
+"""
+
 from __future__ import annotations
 
 import logging
@@ -5,18 +11,21 @@ import socket
 from typing import TYPE_CHECKING, cast
 
 if TYPE_CHECKING:
-    from logger_captain.logger import CustomLogger
+    from decimalog.logger import CustomLogger
     from pyshark.packet.fields import LayerField
     from pyshark.packet.layers.base import BaseLayer
     from pyshark.packet.layers.json_layer import JsonLayer
 
-from protocol_validator.validator_base import ProtocolInfo, ValidatorBase
+from praetor.praetord import ProtocolInfo, ValidatorBase
 
-from icsd_surrogate.model.raw_field import FieldBehavior, RawField
+from proteus.model.raw_field import FieldBehavior, RawField
 
 
 class ProtocolExplorer:
+    """Explores a protocol by validating a seed packet, dissecting it to extract raw fields, and preparing the data for dynamic analysis and fuzzing."""
+
     def __init__(self, packet: str, proto_filter: str) -> None:
+        """Initialize the ProtocolExplorer with a seed packet and protocol filter, sets up logging, validates the seed, and prepares for dissection."""
         logger_name = f"{self.__class__.__module__}.{self.__class__.__name__}"
         self.logger: CustomLogger = cast("CustomLogger", logging.getLogger(logger_name))
 
@@ -29,6 +38,7 @@ class ProtocolExplorer:
         self.logger.info(f"[+] Connected to {self._protocol_info.name} server on port {self._protocol_info.custom_port}")
 
     def validate_seed(self) -> BaseLayer:
+        """Validate the seed packet by sending it to the target server and analyzing the response. If a valid response is received, it returns the dissected packet by PyShark."""
         packet: BaseLayer = self._validator.validate(self._packet, is_request=True)
         self._sock.send(bytes.fromhex(self._packet))
         response: bytes = self._sock.recv(1024)
@@ -41,6 +51,7 @@ class ProtocolExplorer:
         return packet
 
     def dissect(self) -> None:
+        """Dissect the validated seed packet using PyShark to extract raw fields, handling overlapping fields and preparing the data for further analysis."""
         packet: BaseLayer = self.validate_seed()
 
         threshold = -1
@@ -90,6 +101,7 @@ class ProtocolExplorer:
 
     @property
     def raw_fields(self) -> list[RawField]:
+        """Returns the list of raw fields extracted from the dissected packet."""
         return self._raw_fields
 
 
