@@ -3,7 +3,6 @@
 import json
 import logging
 import secrets
-import socket
 import struct
 from dataclasses import asdict
 from pathlib import Path
@@ -20,6 +19,17 @@ from proteus.analyzers.protocol_explorer import ProtocolExplorer
 from proteus.model.cli_branding import CliBranding
 from proteus.model.raw_field import EnhancedJSONEncoder, FieldBehavior, RawField
 from proteus.results.packet_struct import PacketStruct
+from proteus.utils.constants import (
+    DEFAULT_HOST,
+    DEFAULT_PORT,
+    MODBUS_FUNCTION_CODE_FIELD,
+    PACKET_LENGTH_OFFSET,
+    STRUCTURAL_VARIANT_FUNCTION_CODES,
+    STRUCTURAL_VARIANT_PAYLOAD_LENGTHS,
+    VALIDATION_TIMEOUT,
+)
+from proteus.utils.response_validator import is_valid_response
+from proteus.utils.socket_manager import SocketManager
 
 
 class ProtocolFuzzer:
@@ -93,48 +103,94 @@ class ProtocolFuzzer:
         return prefix
 
     def _find_structural_variants(self, fields_json: list[RawField]) -> list[str]:
-        pivot_field: RawField | None = None
-        for field in fields_json:
-            if "modbus.func_code" in field.name:
-                pivot_field: RawField = field
-                print(f"Selected Structural Pivot: {pivot_field.name}")
-                break
-        if not pivot_field:
-            raise ValueError("No suitable pivot field found for structural analysis.")
+        """Find structural variants by testing different function codes and payload lengths.
+        
+        Args:
+            fields_json: List of raw fields from the seed packet
+            
+        Returns:
+            List of new seed packet hex strings
+            
+        Raises:
+            ValueError: If no suitable pivot field is found
+        """
+        pivot_field = self._find_pivot_field(fields_json)
+        length_fields = self._identify_length_fields(fields_json, pivot_field)
+        new_seeds = self._generate_variant_candidates(fields_json, pivot_field, length_fields)
+        
+        self._find_structural_variants2(new_seeds, pivot_field)
+        return new_seeds
 
+    def _find_pivot_field(self, fields: list[RawField]) -> RawField:
+        """Identify the pivot field for structural analysis.
+        
+        Args:
+            fields: List of raw fields
+            
+        Returns:
+            The pivot field
+            
+        Raises:
+            ValueError: If no suitable pivot field is found
+        """
+        for field in fields:
+            if MODBUS_FUNCTION_CODE_FIELD in field.name:
+                print(f"Selected Structural Pivot: {field.name}")
+                return field
+        raise ValueError("No suitable pivot field found for structural analysis.")
+
+    def _identify_length_fields(self, fields: list[RawField], pivot_field: RawField) -> list[RawField]:
+        """Identify length fields that appear before the pivot field.
+        
+        Args:
+            fields: List of raw fields
+            pivot_field: The pivot field for analysis
+            
+        Returns:
+            List of length fields
+        """
+        return [
+            f for f in fields
+            if f.behavior == FieldBehavior.CONSTRAINED and f.relative_pos < pivot_field.relative_pos
+        ]
+
+    def _generate_variant_candidates(
+        self,
+        fields: list[RawField],
+        pivot_field: RawField,
+        length_fields: list[RawField],
+    ) -> list[str]:
+        """Generate candidate packets with different pivot values and payload lengths.
+        
+        Args:
+            fields: List of raw fields
+            pivot_field: The pivot field to mutate
+            length_fields: List of length fields to update
+            
+        Returns:
+            List of valid candidate packet hex strings
+        """
         new_seeds: list[str] = []
 
-        # Identify Length fields (CONSTRAINED fields before the pivot)
-        length_fields: list[RawField] = [f for f in fields_json if f.behavior == FieldBehavior.CONSTRAINED and f.relative_pos < pivot_field.relative_pos]
-
-        for val in ["01", "02", "03", "04", "05", "06"]:
-            # Start with the raw bytes up to the pivot
-            # (You would need the original raw packet for this, or reconstruct from 'val' fields)
-            base_packet: bytes = self._construct_prefix(fields_json, stop_at_name=pivot_field.name)
-
-            # Append the new pivot value
+        for val in STRUCTURAL_VARIANT_FUNCTION_CODES:
+            base_packet = self._construct_prefix(fields, stop_at_name=pivot_field.name)
             base_packet += bytes.fromhex(val)
             print(f"Base Packet with new pivot {val}: {base_packet.hex()}")
 
-            # STRATEGY: Probing for Structure
-            # We don't know if this new type needs 0 bytes, 2 bytes, or 100 bytes following it.
-            # We generate a gradient of lengths.
-
-            for payload_len in [0, 2, 4, 8, 16]:
+            for payload_len in STRUCTURAL_VARIANT_PAYLOAD_LENGTHS:
                 payload = b"\x00" * payload_len
                 candidate_pkt = base_packet + payload
 
-                # 3. Fixup Lengths (The "Oracle")
-                # If we identified a length field earlier, update it to match current size
+                # Fix length fields to match current packet size
                 for len_field in length_fields:
                     candidate_pkt = self._fix_length_field(candidate_pkt, len_field)
-                    try:
-                        self._validate_seed("localhost", 5020, candidate_pkt)
-                        new_seeds.append(candidate_pkt.hex())
-                    except Exception as e:
-                        self.logger.trace(f"Validation failed for candidate packet: {candidate_pkt.hex()} - Error: {e}")
+                    
+                try:
+                    self._validate_seed(DEFAULT_HOST, DEFAULT_PORT, candidate_pkt)
+                    new_seeds.append(candidate_pkt.hex())
+                except Exception as e:
+                    self.logger.trace(f"Validation failed for candidate packet: {candidate_pkt.hex()} - Error: {e}")
 
-        self._find_structural_variants2(new_seeds, pivot_field)
         return new_seeds
 
     def _find_structural_variants2(self, new_seeds: list[str], pivot_field: RawField) -> None:
@@ -159,40 +215,48 @@ class ProtocolFuzzer:
                 self.logger.warning(f"Failed to dissect new seed {seed}: {e}")
 
     def _validate_seed(self, target_ip: str, target_port: int, seed_bytes: bytes) -> dict:
-        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        s.settimeout(0.01)
+        """Validate a seed packet by sending it to the server and checking the response.
+        
+        Args:
+            target_ip: Target server IP address
+            target_port: Target server port
+            seed_bytes: Seed packet bytes to validate
+            
+        Returns:
+            Validation result dictionary
+            
+        Raises:
+            ValueError: If the response is invalid
+        """
+        with SocketManager(target_ip, target_port, timeout=VALIDATION_TIMEOUT) as sock_mgr:
+            sock_mgr.send(seed_bytes)
+            response: bytes = sock_mgr.receive()
 
-        try:
-            s.connect((target_ip, target_port))
-            s.sendall(seed_bytes)
-            response: bytes = s.recv(4096)
+            if not is_valid_response(response):
+                raise ValueError("Received invalid response")
 
-            if response.hex()[:4] == "0000":
-                raise ValueError("Received response with all-zero header, likely invalid packet")
-            if len(response) == 0:
-                raise ValueError("Received empty response, likely invalid packet")
-            if response.hex()[-2:] == "04":
-                raise ValueError("Received response with only an error code, likely invalid packet")
-
-            self.logger.debug(f"Sent: {seed_bytes.hex()} | Received: {response.hex() if response else 'No Response'}")
-
+            self.logger.debug(f"Sent: {seed_bytes.hex()} | Received: {response.hex()}")
             self._validator.validate(seed_bytes.hex(), is_request=True)
-        finally:
-            s.close()
 
-            # Heuristic: If we get data but no TransID match, it might be a generic error
         return {
             "status": "RESPONSE_RECEIVED",
-            "valid": True,  # It's valid protocol, likely an application error
+            "valid": True,
             "len": len(response),
             "data": response.hex(),
         }
 
     def _fix_length_field(self, packet_bytes: bytes, len_field: RawField) -> bytes:
-        length_value = len(packet_bytes) - 6
-        # Pack the length as a big-endian unsigned 16-bit integer
+        """Fix length field in packet to match actual packet size.
+        
+        Args:
+            packet_bytes: The packet bytes
+            len_field: The length field to fix
+            
+        Returns:
+            Updated packet bytes with correct length field
+        """
+        length_value = len(packet_bytes) - PACKET_LENGTH_OFFSET
         length_bytes = struct.pack(">H", length_value)
-        # Replace the length field in the packet
         start_pos = len_field.relative_pos + 1
         end_pos = start_pos + len_field.size + 1
         return packet_bytes[:start_pos] + b"\x00" + length_bytes + packet_bytes[end_pos:]
@@ -214,7 +278,7 @@ def run(protocol: str, log_level: str, seed: str | None, pcap: str | None) -> No
     cli_branding.show_intro()
 
     fuzzer = ProtocolFuzzer(protocol)
-    server_starter = Starter(protocol, 5020, delay=3)
+    server_starter = Starter(protocol, DEFAULT_PORT, delay=3)
     server_starter.start_server()
     requests: list[str] = fuzzer.load_requests(pcap or "", seed or "")
     for req in requests:

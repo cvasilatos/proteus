@@ -7,18 +7,19 @@ and extracts raw fields for further analysis. It also handles connection to the 
 from __future__ import annotations
 
 import logging
-import socket
 from typing import TYPE_CHECKING, cast
+
+from praetor.praetord import ProtocolInfo, ValidatorBase
+
+from proteus.model.raw_field import FieldBehavior, RawField
+from proteus.utils.response_validator import is_valid_response
+from proteus.utils.socket_manager import SocketManager
 
 if TYPE_CHECKING:
     from decimalog.logger import CustomLogger
     from pyshark.packet.fields import LayerField
     from pyshark.packet.layers.base import BaseLayer
     from pyshark.packet.layers.json_layer import JsonLayer
-
-from praetor.praetord import ProtocolInfo, ValidatorBase
-
-from proteus.model.raw_field import FieldBehavior, RawField
 
 
 class ProtocolExplorer:
@@ -33,17 +34,18 @@ class ProtocolExplorer:
         self._protocol_info: ProtocolInfo = ProtocolInfo.from_name(proto_filter)
         self._raw_fields: list[RawField] = []
         self._validator = ValidatorBase(self._protocol_info.protocol_name)
-        self._sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        self._sock.connect(("localhost", self._protocol_info.custom_port))
+        
+        self._socket_manager = SocketManager("localhost", self._protocol_info.custom_port)
+        self._socket_manager.connect()
         self.logger.info(f"[+] Connected to {self._protocol_info.name} server on port {self._protocol_info.custom_port}")
 
     def validate_seed(self) -> BaseLayer:
         """Validate the seed packet by sending it to the target server and analyzing the response. If a valid response is received, it returns the dissected packet by PyShark."""
         packet: BaseLayer = self._validator.validate(self._packet, is_request=True)
-        self._sock.send(bytes.fromhex(self._packet))
-        response: bytes = self._sock.recv(1024)
+        self._socket_manager.send(bytes.fromhex(self._packet))
+        response: bytes = self._socket_manager.receive(1024)
 
-        if len(response) > 0 and response.hex()[0:2] != "0000":
+        if is_valid_response(response):
             self.logger.info(f"[+] Dissecting packet: {self._packet} : {response.hex()} for protocol layers: {self._protocol_info.scapy_names}")
         else:
             raise ValueError(f"No response or unexpected response for packet: {self._packet}, cannot dissect.")

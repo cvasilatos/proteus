@@ -4,21 +4,22 @@ Description: Implements the DynamicFieldAnalyzer class which performs dynamic an
 mutations and observing server responses to classify field behavior. This includes generating random mutations, sending them to the server,
 """
 
+import difflib
 import logging
 import random
-import socket
 from typing import TYPE_CHECKING, Any, cast
-
-from proteus.model.raw_field import FieldBehavior, RawField
-
-if TYPE_CHECKING:
-    from decimalog.logger import CustomLogger
-
-import difflib
 
 import plotly.graph_objects as go
 from praetor.praetord import ValidatorBase
 from praetor.protocol_info import ProtocolInfo
+
+from proteus.model.raw_field import FieldBehavior, RawField
+from proteus.utils.constants import CONSTRAINED_THRESHOLD, DEFAULT_MUTATION_SAMPLE_SIZE, FUZZABLE_THRESHOLD, MODBUS_FUNCTION_CODE_FIELD
+from proteus.utils.response_validator import is_valid_response
+from proteus.utils.socket_manager import SocketManager
+
+if TYPE_CHECKING:
+    from decimalog.logger import CustomLogger
 
 
 class DynamicFieldAnalyzer:
@@ -30,35 +31,21 @@ class DynamicFieldAnalyzer:
         self.logger: CustomLogger = cast("CustomLogger", logging.getLogger(logger_name))
 
         self._protocol_info: ProtocolInfo = ProtocolInfo.from_name(protocol)
-
         self._validator = ValidatorBase(protocol)
-
-        self._sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        self._sock.settimeout(1)
+        
+        self._socket_manager = SocketManager("localhost", self._protocol_info.custom_port)
+        self._socket_manager.connect()
         self.logger.info(f"Connecting to {self._protocol_info.protocol_name} server at localhost:{self._protocol_info.custom_port}")
-        self._sock.connect(("localhost", self._protocol_info.custom_port))
 
         self._requests: list[str] = []
         self._responses: list[str] = []
 
-    def _get_random_combinations(self, num_bytes: int, sample_size: int) -> list[tuple[int, ...]]:
+    def _get_random_combinations(self, num_bytes: int, sample_size: int = DEFAULT_MUTATION_SAMPLE_SIZE) -> list[tuple[int, ...]]:
         total_possibilities: int = 256**num_bytes
-
-        sample_size: int = min(sample_size, total_possibilities)
+        sample_size = min(sample_size, total_possibilities)
         self.logger.trace(f"Generating {sample_size} random byte combinations for {num_bytes}-byte field")
 
-        results = []
-        for _ in range(sample_size):
-            combo = tuple(random.choices(range(256), k=num_bytes))
-            results.append(combo)
-
-        return results
-
-    def _analyze_responses(self) -> None:
-        self.logger.info("Response distribution from server:")
-        for response_hex in self._responses:
-            count: int = self._responses.count(response_hex)
-            self.logger.info(f"Response: {response_hex}, Count: {count}")
+        return [tuple(random.choices(range(256), k=num_bytes)) for _ in range(sample_size)]
 
     def cluster_responses_plotly(self, seed_hex: str) -> None:
         """Cluster responses based on similarity to the seed packet and visualize using Plotly to identify potential exceptions or valid variations."""
@@ -176,20 +163,20 @@ class DynamicFieldAnalyzer:
             self.logger.info(f"[MUTATION] Field: {f}")
 
             f.valid_values: list[str] = []
-            for mutation_hex_tuple in self._get_random_combinations(f.size, sample_size=1000):
+            for mutation_hex_tuple in self._get_random_combinations(f.size):
                 mutation_hex: str = "".join(f"{b:02x}" for b in mutation_hex_tuple)
 
                 self.logger.debug(f"    [*] Field: {f.name}, testing mutation value: {mutation_hex}, original: {seed[f.relative_pos * 2 : (f.relative_pos + f.size) * 2]}")
-                response = b"0"
+                
                 try:
                     mutated_hex: str = self._inject_mutation(f, seed, mutation_hex, unique_fields=unique_fields).hex()
                     self._validator.validate(mutated_hex, is_request=True)
-                    self._sock.sendall(bytes.fromhex(mutated_hex))
+                    self._socket_manager.send(bytes.fromhex(mutated_hex))
                     self._requests.append(mutated_hex)
-                    response: bytes = self._sock.recv(1024)
+                    response: bytes = self._socket_manager.receive(1024)
                     self._responses.append(response.hex())
 
-                    if len(response) > 0 and response.hex()[:2] != "0000":
+                    if is_valid_response(response):
                         self.logger.debug(f"    [OK] Field: {f.name}, Mutation Accepted: {mutation_hex}, Response: {response.hex()}")
                         f.valid_values.append(mutation_hex)
 
@@ -198,18 +185,16 @@ class DynamicFieldAnalyzer:
                     if f.invalid_values.get(str(e)) is None:
                         f.invalid_values[str(e)] = []
                     f.invalid_values[str(e)].append(mutation_hex)
+                    
+                    # Reconnect on error
+                    self._socket_manager.reconnect()
 
-                    self._sock.close()
-                    self._sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-                    self._sock.settimeout(1)
-                    self.logger.info(f"Connecting to {self._protocol_info.protocol_name} server at localhost:{self._protocol_info.custom_port}")
-                    self._sock.connect(("localhost", self._protocol_info.custom_port))
-
-                if len(f.valid_values) > 50:
+                # Classify field behavior based on valid/invalid response patterns
+                if len(f.valid_values) > FUZZABLE_THRESHOLD:
                     f.set_behavior(FieldBehavior.FUZZABLE)
                     f.accepted = True
                     break
-                if f.get_biggest_invalid_category_size() > 10 and len(f.valid_values) == 0:
+                if f.get_biggest_invalid_category_size() > CONSTRAINED_THRESHOLD and len(f.valid_values) == 0:
                     self.logger.info(f"    [!] Field {f.name} has a large invalid category, marking as CONSTRAINED.")
                     f.set_behavior(FieldBehavior.CONSTRAINED)
                     break
@@ -218,35 +203,24 @@ class DynamicFieldAnalyzer:
                     f.set_behavior(FieldBehavior.FUZZABLE)
                     break
 
-        self._analyze2(unique_fields, seed)
+        self._run_additional_mutations(unique_fields, seed)
 
-    def _analyze2(self, unique_fields: list[RawField], seed: str) -> None:
+    def _run_additional_mutations(self, unique_fields: list[RawField], seed: str) -> None:
+        """Run additional protocol-specific mutation tests.
+        
+        Args:
+            unique_fields: List of fields to test
+            seed: Original seed packet hex string
+        """
         for f in unique_fields:
-            for _ in range(100):
-                if f.name == "modbus.func_code":
+            if f.name == MODBUS_FUNCTION_CODE_FIELD:
+                for _ in range(100):
                     new_hex = "ff"
                     mutated_hex = self._inject_mutation(f, seed, new_hex, unique_fields=unique_fields).hex()
-                    self._sock.sendall(bytes.fromhex(mutated_hex))
-                    response = self._sock.recv(1024)
+                    self._socket_manager.send(bytes.fromhex(mutated_hex))
+                    response = self._socket_manager.receive(1024)
                     self.logger.info(f"Testing func_code mutation: {mutated_hex}, Response: {response.hex()}")
                     self._responses.append(response.hex())
-
-    def _create_mutation(self, target_field: RawField, base_payload_bytes: bytes) -> tuple[bytearray, str]:
-        """Create a copy of the payload with the target field slightly mutated."""
-        self.logger.trace(f"Creating mutation for field {target_field.name} at position {target_field.relative_pos}")
-        payload_copy = bytearray(base_payload_bytes)
-
-        start_index = target_field.relative_pos
-        end_index = start_index + target_field.size
-
-        random_bytes = bytearray(random.getrandbits(8) for _ in range(target_field.size))
-        self.logger.trace(f"Generated random bytes: {random_bytes.hex()} for field {target_field.name}")
-
-        payload_copy[start_index:end_index] = random_bytes
-
-        mutated_field_hex = random_bytes.hex()
-
-        return payload_copy, mutated_field_hex
 
     def _inject_mutation(self, target_field: RawField, base_payload_bytes: str, mutation_hex: str, unique_fields: list[RawField]) -> bytearray:
         self.logger.trace(f"Injecting mutation {mutation_hex} into field {target_field.name}")
