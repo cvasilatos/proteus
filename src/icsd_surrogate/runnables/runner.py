@@ -1,49 +1,36 @@
 import argparse
-import importlib
 import json
 import logging
 import secrets
 import socket
 import struct
-import threading
-import time
 from dataclasses import asdict
 from pathlib import Path
-from typing import TYPE_CHECKING, cast
-
-if TYPE_CHECKING:
-    from types import ModuleType
+from typing import cast
 
 from logger_captain.logger import CustomLogger
+from protocol_server.starter import Starter
 from protocol_validator.protocol_info import ProtocolInfo
 from protocol_validator.validator_base import ValidatorBase
-from rich.console import Console
-from rich.table import Table
 
 from icsd_surrogate.analyzers.dynamic_field_analyzer import DynamicFieldAnalyzer
 from icsd_surrogate.analyzers.protocol_explorer import ProtocolExplorer
 from icsd_surrogate.model.raw_field import EnhancedJSONEncoder, FieldBehavior, RawField
+from icsd_surrogate.results.packet_struct import PacketStruct
 
 
 class ProtocolFuzzer:
-    def __init__(self, protocol_name: str) -> None:
+    def __init__(self, protocol: str) -> None:
         self.logger: CustomLogger = cast("CustomLogger", logging.getLogger(f"{self.__class__.__module__}.{self.__class__.__name__}"))
 
-        self.logger.debug(f"[+] Initializing Protocol Fuzzer for protocol: {protocol_name}")
+        self.logger.debug(f"[+] Initializing Protocol Fuzzer for protocol: {protocol}")
 
-        self._protocol_info: ProtocolInfo = ProtocolInfo.from_name(protocol_name)
-        self._validator = ValidatorBase(self._protocol_info.protocol_name)
+        self._protocol_info: ProtocolInfo = ProtocolInfo.from_name(protocol)
+        self._validator = ValidatorBase(protocol)
 
-    def start_server(self) -> None:
-        module: ModuleType = importlib.import_module(f"protocol_server.{self._protocol_info.name.lower()}.server")
-        server_class = getattr(module, f"{self._protocol_info.name.capitalize()}Server")
-        server = server_class(ip="localhost", port=self._protocol_info.custom_port)
-        server_thread = threading.Thread(target=server.start, name=f"{self._protocol_info.name.capitalize()}Server", daemon=True)
-        server_thread.start()
-        self.logger.info(f"[+] Started {self._protocol_info.name} server on port {self._protocol_info.custom_port}")
-        time.sleep(3)  # Allow server time to start
+        self._packet_struct_viewer = PacketStruct()
 
-    def load_requests(self, pcap_path: str, seed: str) -> list[str]:
+    def load_requests(self, pcap_path: str, packet: str) -> list[str]:
         if pcap_path:
             requests: list[str] = []
             with Path(pcap_path).open(encoding="utf-8") as f:
@@ -51,19 +38,19 @@ class ProtocolFuzzer:
             self.logger.info(f"[+] Loaded {len(requests)} requests from CSV file: {pcap_path}")
             return requests
 
-        return [seed.replace(" ", "")]
+        return [packet.replace(" ", "")]
 
-    def analyze_and_fuzz(self, seed: str) -> None:
-        self.logger.info(f"[+] Analyzing seed packet: {seed}")
+    def analyze_and_fuzz(self, packet: str) -> None:
+        self.logger.info(f"[+] Analyzing seed packet: {packet}")
 
-        explorer = ProtocolExplorer(seed, self._protocol_info.name)
+        explorer = ProtocolExplorer(packet, self._protocol_info.name)
         explorer.dissect()
         analyzer = DynamicFieldAnalyzer(self._protocol_info.name)
-        analyzer.analyze(seed, explorer.raw_fields)
+        analyzer.analyze(packet, explorer.raw_fields)
 
-        analyzer.cluster_responses_plotly(seed)
+        analyzer.cluster_responses_plotly(packet)
 
-        self._print_plan(explorer.raw_fields)
+        self._packet_struct_viewer.print_plan(explorer.raw_fields)
 
         with Path(f"outputs/{self._protocol_info.name}_raw_fields.json").open("w") as f:
             json.dump([asdict(u) for u in explorer.raw_fields], f, indent=4, cls=EnhancedJSONEncoder)
@@ -76,7 +63,7 @@ class ProtocolFuzzer:
             if field.name == stop_at_name:
                 break
 
-            field_bytes = bytes.fromhex(field.val)
+            field_bytes: bytes = bytes.fromhex(field.val)
             prefix += field_bytes
 
         return prefix
@@ -135,7 +122,7 @@ class ProtocolFuzzer:
                 analyzer = DynamicFieldAnalyzer(self._protocol_info.name)
                 analyzer.analyze(seed, explorer.raw_fields)
 
-                self._print_plan(explorer.raw_fields)
+                self._packet_struct_viewer.print_plan(explorer.raw_fields)
                 mutated_packet = seed
                 for field in explorer.raw_fields:
                     if field.behavior == FieldBehavior.FUZZABLE and field.name != pivot_field.name:
@@ -154,7 +141,7 @@ class ProtocolFuzzer:
         try:
             s.connect((target_ip, target_port))
             s.sendall(seed_bytes)
-            response = s.recv(4096)
+            response: bytes = s.recv(4096)
 
             if response.hex()[:4] == "0000":
                 raise ValueError("Received response with all-zero header, likely invalid packet")
@@ -186,29 +173,12 @@ class ProtocolFuzzer:
         end_pos = start_pos + len_field.size + 1
         return packet_bytes[:start_pos] + b"\x00" + length_bytes + packet_bytes[end_pos:]
 
-    def _print_plan(self, fuzzing_plan: list[RawField]) -> None:
-        table = Table(title="Final Fuzzing Plan", show_header=True, header_style="bold magenta")
-        table.add_column("BEHAVIOR")
-        table.add_column("FIELD NAME")
-        table.add_column("POS", justify="right")
-        table.add_column("LEN", justify="right")
-        table.add_column("DEFAULT", justify="left", max_width=10)
-        table.add_column("VALID", overflow="fold")
-        table.add_column("INVALID", overflow="fold")
-        table.add_column("ACCEPTED", justify="center")
 
-        for item in fuzzing_plan:
-            behavior_markup = f"[{item.behavior.color}]{item.behavior.value}[/{item.behavior.color}]"
-            table.add_row(
-                behavior_markup, item.name, str(item.relative_pos), str(item.size), str(item.val), str(item.valid_values[:5]), str(item.invalid_values), str(item.accepted)
-            )
-        Console().print(table)
-
-
-def run(pcap_path: str, seed: str, protocol: str) -> None:
+def run(pcap_path: str, packet: str, protocol: str) -> None:
     fuzzer = ProtocolFuzzer(protocol)
-    fuzzer.start_server()
-    requests: list[str] = fuzzer.load_requests(pcap_path, seed)
+    server_starter = Starter(protocol, 5020, delay=3)
+    server_starter.start_server()
+    requests: list[str] = fuzzer.load_requests(pcap_path, packet)
     for req in requests:
         fuzzer.analyze_and_fuzz(req)
 
@@ -222,8 +192,8 @@ if __name__ == "__main__":
     group.add_argument("--seed", type=str, help="Hex string of the seed packet")
     group.add_argument("--pcap", type=str, help="Path to pcap file containing the seed packet")
 
-    args = parser.parse_args()
+    args: argparse.Namespace = parser.parse_args()
 
-    CustomLogger.setup_logging("logs", "app_wide_log", level=args.log_level)
+    CustomLogger.setup_logging("logs", "app.log", level=args.log_level)
 
     run(args.pcap, args.seed, args.protocol)

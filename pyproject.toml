@@ -22,9 +22,9 @@ dependencies = [
     "rich>=14.3.2",
     "plotly>=6.5.2",
     "protocol-validator",
-    "protocol-server",
     "ty>=0.0.17",
     "logger-captain",
+    "protocol-server",
 ]
 
 [tool.uv]
@@ -32,13 +32,14 @@ managed = true
 
 [tool.uv.sources]
 protocol-validator = { path = "../../../projects/protocol-validator/dist/protocol_validator-0.1.0-py3-none-any.whl" }
-protocol-server = { path = "../../../projects/protocol-server/dist/protocol_server-0.1.0-py3-none-any.whl" }
 logger-captain = { path = "../../../projects/logger-captain/dist/logger_captain-0.1.0-py3-none-any.whl" }
+protocol-server = { path = "../../../projects/protocol-server/dist/protocol_server-0.1.0-py3-none-any.whl" }
 
 [tool.ruff]
 line-length = 180
 target-version = "py312"
 exclude = [".git", ".mypy_cache", ".ruff_cache", "node_modules", "venv", ".venv"]
+include = ["src"]
 
 [tool.ruff.lint]
 select = ["ALL"]

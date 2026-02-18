@@ -1060,6 +1060,7 @@ name = "protocol-server"
 version = "0.1.0"
 source = { path = "../../../projects/protocol-server/dist/protocol_server-0.1.0-py3-none-any.whl" }
 dependencies = [
+    { name = "logger-captain" },
     { name = "mypy" },
     { name = "pre-commit" },
     { name = "pymodbus" },
@@ -1068,11 +1069,12 @@ dependencies = [
     { name = "ruff" },
 ]
 wheels = [
-    { filename = "protocol_server-0.1.0-py3-none-any.whl", hash = "sha256:bbb93f16c31a1608c74aead03597cf9caa4e285dfe3d0af52c406773856c9672" },
+    { filename = "protocol_server-0.1.0-py3-none-any.whl", hash = "sha256:e25dc256761b29e2358326442f28a5409b00856121376505368b92ff08afb339" },
 ]
 
 [package.metadata]
 requires-dist = [
+    { name = "logger-captain" },
     { name = "mypy" },
     { name = "pre-commit" },
     { name = "pymodbus", specifier = ">=3.12.0" },
