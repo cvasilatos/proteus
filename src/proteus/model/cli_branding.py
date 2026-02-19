@@ -24,19 +24,17 @@ class CliBranding:
     @staticmethod
     def show_intro() -> None:
         """Display the Proteus project branding and a quote in the CLI."""
+        with Path("./paper/resources/metadata.json").open() as f:
+            data = json.load(f)
 
-
-with Path("metadata.json").open() as f:
-    data = json.load(f)
-
-    console.print(f"[bold purple]{CliBranding.HEADER}[/bold purple]")
-    console.print(
-        Panel.fit(
-            f'{data["project_short"]}:{data["project_full"]}\n\n[italic yellow]"{data["quote"]}"[/italic yellow]',
-            title="[bold white]PROJECT PROTEUS for ICS Protocols[/bold white]",
-            border_style="red",
-        )
-    )
+            console.print(f"[bold purple]{CliBranding.HEADER}[/bold purple]")
+            console.print(
+                Panel.fit(
+                    f"{data['name']}:{data['title']}",
+                    title="[bold white]PROJECT PROTEUS for ICS Protocols[/bold white]",
+                    border_style="red",
+                )
+            )
 
     @staticmethod
     def log_pivot(offset: int, original: bytearray, mutated: bytearray) -> None:

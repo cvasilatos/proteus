@@ -34,7 +34,7 @@ class ProtocolExplorer:
         self._protocol_info: ProtocolInfo = ProtocolInfo.from_name(proto_filter)
         self._raw_fields: list[RawField] = []
         self._validator = ValidatorBase(self._protocol_info.protocol_name)
-        
+
         self._socket_manager = SocketManager("localhost", self._protocol_info.custom_port)
         self._socket_manager.connect()
         self.logger.info(f"[+] Connected to {self._protocol_info.name} server on port {self._protocol_info.custom_port}")

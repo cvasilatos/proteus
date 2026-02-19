@@ -62,7 +62,6 @@ ignore = [
     "S101",
     "PERF203",
 ]
-unfixable = ["F401"]
 
 [tool.ruff.lint.isort]
 combine-as-imports = true

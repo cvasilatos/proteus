@@ -33,7 +33,7 @@ class DynamicFieldAnalyzer:
 
         self._protocol_info: ProtocolInfo = ProtocolInfo.from_name(protocol)
         self._validator = ValidatorBase(protocol)
-        
+
         self._socket_manager = SocketManager("localhost", self._protocol_info.custom_port)
         self._socket_manager.connect()
         self.logger.info(f"Connecting to {self._protocol_info.protocol_name} server at localhost:{self._protocol_info.custom_port}")
@@ -168,11 +168,9 @@ class DynamicFieldAnalyzer:
                 mutation_hex: str = "".join(f"{b:02x}" for b in mutation_hex_tuple)
 
                 self.logger.debug(f"    [*] Field: {f.name}, testing mutation value: {mutation_hex}, original: {seed[f.relative_pos * 2 : (f.relative_pos + f.size) * 2]}")
-                
+
                 try:
-                    mutated_hex: str = PacketManipulator.inject_mutation(
-                        f, seed, mutation_hex, unique_fields=unique_fields
-                    ).hex()
+                    mutated_hex: str = PacketManipulator.inject_mutation(f, seed, mutation_hex, unique_fields=unique_fields).hex()
                     self._validator.validate(mutated_hex, is_request=True)
                     self._socket_manager.send(bytes.fromhex(mutated_hex))
                     self._requests.append(mutated_hex)
@@ -188,7 +186,7 @@ class DynamicFieldAnalyzer:
                     if f.invalid_values.get(str(e)) is None:
                         f.invalid_values[str(e)] = []
                     f.invalid_values[str(e)].append(mutation_hex)
-                    
+
                     # Reconnect on error
                     self._socket_manager.reconnect()
 
@@ -210,20 +208,18 @@ class DynamicFieldAnalyzer:
 
     def _run_additional_mutations(self, unique_fields: list[RawField], seed: str) -> None:
         """Run additional protocol-specific mutation tests.
-        
+
         Args:
             unique_fields: List of fields to test
             seed: Original seed packet hex string
+
         """
         for f in unique_fields:
             if f.name == MODBUS_FUNCTION_CODE_FIELD:
                 for _ in range(100):
                     new_hex = "ff"
-                    mutated_hex = PacketManipulator.inject_mutation(
-                        f, seed, new_hex, unique_fields=unique_fields
-                    ).hex()
+                    mutated_hex = PacketManipulator.inject_mutation(f, seed, new_hex, unique_fields=unique_fields).hex()
                     self._socket_manager.send(bytes.fromhex(mutated_hex))
                     response = self._socket_manager.receive(1024)
                     self.logger.info(f"Testing func_code mutation: {mutated_hex}, Response: {response.hex()}")
                     self._responses.append(response.hex())
-

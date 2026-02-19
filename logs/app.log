@@ -1,51 +1,30 @@
-2026-02-18 16:09:43,009 - [INFO] - [1mver.MbtcpServer[0m - Starting Modbus TCP server at localhost:5020
-2026-02-18 16:09:43,009 - [INFO] - [1mstarter.Starter[0m - [+] Started mbtcp server on port 5020
-2026-02-18 16:09:43,011 - [INFO] - [1mymodbus.logging[0m - Server listening.
-2026-02-18 16:09:46,015 - [INFO] - [1m.ProtocolFuzzer[0m - [+] Analyzing seed packet: 00540000000b00100000000204ffffffff
-2026-02-18 16:09:46,017 - [INFO] - [1mrotocolExplorer[0m - [+] Connected to MBTCP server on port 5020
-2026-02-18 16:09:46,373 - [INFO] - [1mrotocolExplorer[0m - [+] Dissecting packet: 00540000000b00100000000204ffffffff : 005400000006001000000002 for protocol layers: ['mbtcp', 'modbus']
-2026-02-18 16:09:46,374 - [WARNING] - [1mrotocolExplorer[0m -     [!] Skipping..Overlapping field with larger size detected at pos 61, Value: Write Multiple Registers (16)
-2026-02-18 16:09:46,374 - [INFO] - [1micFieldAnalyzer[0m - Connecting to mbtcp server at localhost:5020
-2026-02-18 16:09:46,374 - [INFO] - [1micFieldAnalyzer[0m - [?] Starting Dynamic Analysis on 10 unique fields...
+2026-02-19 08:50:57,298 - [INFO] - [1mver.MbtcpServer[0m - Starting Modbus TCP server at localhost:5020
+2026-02-19 08:50:57,298 - [INFO] - [1mstarter.Starter[0m - [+] Started mbtcp server on port 5020
+2026-02-19 08:50:57,300 - [INFO] - [1mymodbus.logging[0m - Server listening.
+2026-02-19 08:51:00,304 - [INFO] - [1m.ProtocolFuzzer[0m - [+] Analyzing seed packet: 00540000000b00100000000204ffffffff
+2026-02-19 08:51:00,306 - [INFO] - [1mrotocolExplorer[0m - [+] Connected to MBTCP server on port 5020
+2026-02-19 08:51:00,654 - [INFO] - [1mrotocolExplorer[0m - [+] Dissecting packet: 00540000000b00100000000204ffffffff : 005400000006001000000002 for protocol layers: ['mbtcp', 'modbus']
+2026-02-19 08:51:00,655 - [WARNING] - [1mrotocolExplorer[0m -     [!] Skipping..Overlapping field with larger size detected at pos 61, Value: Write Multiple Registers (16)
+2026-02-19 08:51:00,655 - [INFO] - [1micFieldAnalyzer[0m - Connecting to mbtcp server at localhost:5020
+2026-02-19 08:51:00,655 - [INFO] - [1micFieldAnalyzer[0m - [?] Starting Dynamic Analysis on 10 unique fields...
 
-2026-02-18 16:09:46,375 - [INFO] - [1micFieldAnalyzer[0m - [MUTATION] Field:   [32mRawField: mbtcp.trans_id,   [33mW_Name: mbtcp.trans_id,   [34mLayer: mbtcp,   [35mD_Name: Transaction Identifier: 84,   [36mPos: 54 (+55),   [31mSize: 2,   [37mBehavior: UNKNOWN,   [32mAccepted: False[0m
-2026-02-18 16:09:46,542 - [INFO] - [1micFieldAnalyzer[0m -     [*] Field mbtcp.trans_id valid values count: 1, largest invalid category size: 0
-2026-02-18 16:09:46,542 - [INFO] - [1micFieldAnalyzer[0m - [MUTATION] Field:   [32mRawField: mbtcp.prot_id,   [33mW_Name: mbtcp.prot_id,   [34mLayer: mbtcp,   [35mD_Name: Protocol Identifier: 0,   [36mPos: 56 (+2),   [31mSize: 2,   [37mBehavior: UNKNOWN,   [32mAccepted: False[0m
-2026-02-18 16:09:46,545 - [INFO] - [1micFieldAnalyzer[0m - Connecting to mbtcp server at localhost:5020
-2026-02-18 16:09:46,547 - [INFO] - [1micFieldAnalyzer[0m - Connecting to mbtcp server at localhost:5020
-2026-02-18 16:09:46,550 - [INFO] - [1micFieldAnalyzer[0m - Connecting to mbtcp server at localhost:5020
-2026-02-18 16:09:46,552 - [INFO] - [1micFieldAnalyzer[0m - Connecting to mbtcp server at localhost:5020
-2026-02-18 16:09:46,554 - [INFO] - [1micFieldAnalyzer[0m - Connecting to mbtcp server at localhost:5020
-2026-02-18 16:09:46,556 - [INFO] - [1micFieldAnalyzer[0m - Connecting to mbtcp server at localhost:5020
-2026-02-18 16:09:46,558 - [INFO] - [1micFieldAnalyzer[0m - Connecting to mbtcp server at localhost:5020
-2026-02-18 16:09:46,561 - [INFO] - [1micFieldAnalyzer[0m - Connecting to mbtcp server at localhost:5020
-2026-02-18 16:09:46,563 - [INFO] - [1micFieldAnalyzer[0m - Connecting to mbtcp server at localhost:5020
-2026-02-18 16:09:46,565 - [INFO] - [1micFieldAnalyzer[0m - Connecting to mbtcp server at localhost:5020
-2026-02-18 16:09:46,567 - [INFO] - [1micFieldAnalyzer[0m - Connecting to mbtcp server at localhost:5020
-2026-02-18 16:09:46,567 - [INFO] - [1micFieldAnalyzer[0m -     [!] Field mbtcp.prot_id has a large invalid category, marking as CONSTRAINED.
-2026-02-18 16:09:46,568 - [INFO] - [1micFieldAnalyzer[0m - [MUTATION] Field:   [32mRawField: mbtcp.len,   [33mW_Name: mbtcp.len,   [34mLayer: mbtcp,   [35mD_Name: Length: 11,   [36mPos: 58 (+4),   [31mSize: 2,   [37mBehavior: UNKNOWN,   [32mAccepted: False[0m
-2026-02-18 16:09:46,570 - [INFO] - [1micFieldAnalyzer[0m - Connecting to mbtcp server at localhost:5020
-2026-02-18 16:09:46,572 - [INFO] - [1micFieldAnalyzer[0m - Connecting to mbtcp server at localhost:5020
-2026-02-18 16:09:46,574 - [INFO] - [1micFieldAnalyzer[0m - Connecting to mbtcp server at localhost:5020
-2026-02-18 16:09:46,576 - [INFO] - [1micFieldAnalyzer[0m - Connecting to mbtcp server at localhost:5020
-2026-02-18 16:09:46,578 - [INFO] - [1micFieldAnalyzer[0m - Connecting to mbtcp server at localhost:5020
-2026-02-18 16:09:46,580 - [INFO] - [1micFieldAnalyzer[0m - Connecting to mbtcp server at localhost:5020
-2026-02-18 16:09:46,582 - [INFO] - [1micFieldAnalyzer[0m - Connecting to mbtcp server at localhost:5020
-2026-02-18 16:09:46,584 - [INFO] - [1micFieldAnalyzer[0m - Connecting to mbtcp server at localhost:5020
-2026-02-18 16:09:46,587 - [INFO] - [1micFieldAnalyzer[0m - Connecting to mbtcp server at localhost:5020
-2026-02-18 16:09:46,589 - [INFO] - [1micFieldAnalyzer[0m - Connecting to mbtcp server at localhost:5020
-2026-02-18 16:09:46,590 - [INFO] - [1micFieldAnalyzer[0m - Connecting to mbtcp server at localhost:5020
-2026-02-18 16:09:46,591 - [INFO] - [1micFieldAnalyzer[0m -     [!] Field mbtcp.len has a large invalid category, marking as CONSTRAINED.
-2026-02-18 16:09:46,591 - [INFO] - [1micFieldAnalyzer[0m - [MUTATION] Field:   [32mRawField: mbtcp.unit_id,   [33mW_Name: mbtcp.unit_id,   [34mLayer: mbtcp,   [35mD_Name: Unit Identifier: 0,   [36mPos: 60 (+6),   [31mSize: 1,   [37mBehavior: UNKNOWN,   [32mAccepted: False[0m
-2026-02-18 16:09:46,593 - [INFO] - [1micFieldAnalyzer[0m -     [*] Field mbtcp.unit_id valid values count: 1, largest invalid category size: 0
-2026-02-18 16:09:46,593 - [INFO] - [1micFieldAnalyzer[0m - [MUTATION] Field:   [32mRawField: modbus.func_code,   [33mW_Name: modbus.func_code,   [34mLayer: modbus,   [35mD_Name: .001 0000 = Function Code: Write Multiple Registers (16),   [36mPos: 61 (+7),   [31mSize: 1,   [37mBehavior: UNKNOWN,   [32mAccepted: False[0m
-2026-02-18 16:09:46,596 - [WARNING] - [1mymodbus.logging[0m - Unable to decode frame Modbus Error: Unknown response 31
-2026-02-18 16:09:46,596 - [INFO] - [1micFieldAnalyzer[0m -     [*] Field modbus.func_code valid values count: 1, largest invalid category size: 0
-2026-02-18 16:09:46,596 - [INFO] - [1micFieldAnalyzer[0m - [MUTATION] Field:   [32mRawField: modbus.reference_num,   [33mW_Name: modbus.reference_num,   [34mLayer: modbus,   [35mD_Name: Reference Number: 0,   [36mPos: 62 (+8),   [31mSize: 2,   [37mBehavior: UNKNOWN,   [32mAccepted: False[0m
-2026-02-18 16:09:46,598 - [INFO] - [1micFieldAnalyzer[0m -     [*] Field modbus.reference_num valid values count: 1, largest invalid category size: 0
-2026-02-18 16:09:46,598 - [INFO] - [1micFieldAnalyzer[0m - [MUTATION] Field:   [32mRawField: modbus.word_cnt,   [33mW_Name: modbus.word_cnt,   [34mLayer: modbus,   [35mD_Name: Word Count: 2,   [36mPos: 64 (+10),   [31mSize: 2,   [37mBehavior: UNKNOWN,   [32mAccepted: False[0m
-2026-02-18 16:09:46,601 - [ERROR] - [1masyncio[0m - Fatal error: protocol.data_received() call failed.
-protocol: <pymodbus.server.requesthandler.ServerRequestHandler object at 0x10c4e5070>
+2026-02-19 08:51:00,656 - [INFO] - [1micFieldAnalyzer[0m - [MUTATION] Field:   [32mRawField: mbtcp.trans_id,   [33mW_Name: mbtcp.trans_id,   [34mLayer: mbtcp,   [35mD_Name: Transaction Identifier: 84,   [36mPos: 54 (+55),   [31mSize: 2,   [37mBehavior: UNKNOWN,   [32mAccepted: False[0m
+2026-02-19 08:51:00,784 - [INFO] - [1micFieldAnalyzer[0m -     [*] Field mbtcp.trans_id valid values count: 1, largest invalid category size: 0
+2026-02-19 08:51:00,784 - [INFO] - [1micFieldAnalyzer[0m - [MUTATION] Field:   [32mRawField: mbtcp.prot_id,   [33mW_Name: mbtcp.prot_id,   [34mLayer: mbtcp,   [35mD_Name: Protocol Identifier: 0,   [36mPos: 56 (+2),   [31mSize: 2,   [37mBehavior: UNKNOWN,   [32mAccepted: False[0m
+2026-02-19 08:51:00,807 - [INFO] - [1micFieldAnalyzer[0m -     [!] Field mbtcp.prot_id has a large invalid category, marking as CONSTRAINED.
+2026-02-19 08:51:00,808 - [INFO] - [1micFieldAnalyzer[0m - [MUTATION] Field:   [32mRawField: mbtcp.len,   [33mW_Name: mbtcp.len,   [34mLayer: mbtcp,   [35mD_Name: Length: 11,   [36mPos: 58 (+4),   [31mSize: 2,   [37mBehavior: UNKNOWN,   [32mAccepted: False[0m
+2026-02-19 08:51:00,831 - [INFO] - [1micFieldAnalyzer[0m -     [!] Field mbtcp.len has a large invalid category, marking as CONSTRAINED.
+2026-02-19 08:51:00,831 - [INFO] - [1micFieldAnalyzer[0m - [MUTATION] Field:   [32mRawField: mbtcp.unit_id,   [33mW_Name: mbtcp.unit_id,   [34mLayer: mbtcp,   [35mD_Name: Unit Identifier: 0,   [36mPos: 60 (+6),   [31mSize: 1,   [37mBehavior: UNKNOWN,   [32mAccepted: False[0m
+2026-02-19 08:51:00,834 - [INFO] - [1micFieldAnalyzer[0m -     [*] Field mbtcp.unit_id valid values count: 1, largest invalid category size: 0
+2026-02-19 08:51:00,834 - [INFO] - [1micFieldAnalyzer[0m - [MUTATION] Field:   [32mRawField: modbus.func_code,   [33mW_Name: modbus.func_code,   [34mLayer: modbus,   [35mD_Name: .001 0000 = Function Code: Write Multiple Registers (16),   [36mPos: 61 (+7),   [31mSize: 1,   [37mBehavior: UNKNOWN,   [32mAccepted: False[0m
+2026-02-19 08:51:00,836 - [WARNING] - [1mymodbus.logging[0m - Unable to decode frame Modbus Error: Unknown response 30
+2026-02-19 08:51:00,839 - [WARNING] - [1mymodbus.logging[0m - Unable to decode frame Modbus Error: Unknown response 97
+2026-02-19 08:51:00,841 - [INFO] - [1micFieldAnalyzer[0m -     [*] Field modbus.func_code valid values count: 1, largest invalid category size: 0
+2026-02-19 08:51:00,841 - [INFO] - [1micFieldAnalyzer[0m - [MUTATION] Field:   [32mRawField: modbus.reference_num,   [33mW_Name: modbus.reference_num,   [34mLayer: modbus,   [35mD_Name: Reference Number: 0,   [36mPos: 62 (+8),   [31mSize: 2,   [37mBehavior: UNKNOWN,   [32mAccepted: False[0m
+2026-02-19 08:51:00,844 - [INFO] - [1micFieldAnalyzer[0m -     [*] Field modbus.reference_num valid values count: 1, largest invalid category size: 0
+2026-02-19 08:51:00,844 - [INFO] - [1micFieldAnalyzer[0m - [MUTATION] Field:   [32mRawField: modbus.word_cnt,   [33mW_Name: modbus.word_cnt,   [34mLayer: modbus,   [35mD_Name: Word Count: 2,   [36mPos: 64 (+10),   [31mSize: 2,   [37mBehavior: UNKNOWN,   [32mAccepted: False[0m
+2026-02-19 08:51:00,846 - [ERROR] - [1masyncio[0m - Fatal error: protocol.data_received() call failed.
+protocol: <pymodbus.server.requesthandler.ServerRequestHandler object at 0x1099cf110>
 transport: <_SelectorSocketTransport fd=20 read=polling write=<idle, bufsize=0>>
 Traceback (most recent call last):
   File "/Users/cv43/.local/share/uv/python/cpython-3.12.12-macos-aarch64-none/lib/python3.12/asyncio/selector_events.py", line 1027, in _read_ready__data_received
@@ -70,9 +49,8 @@ Traceback (most recent call last):
     self.registers.append(struct.unpack(">H", data[idx : idx + 2])[0])
                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 struct.error: unpack requires a buffer of 2 bytes
-2026-02-18 16:09:46,609 - [INFO] - [1micFieldAnalyzer[0m - Connecting to mbtcp server at localhost:5020
-2026-02-18 16:09:46,612 - [ERROR] - [1masyncio[0m - Fatal error: protocol.data_received() call failed.
-protocol: <pymodbus.server.requesthandler.ServerRequestHandler object at 0x10c4e7e30>
+2026-02-19 08:51:00,858 - [ERROR] - [1masyncio[0m - Fatal error: protocol.data_received() call failed.
+protocol: <pymodbus.server.requesthandler.ServerRequestHandler object at 0x1099ce090>
 transport: <_SelectorSocketTransport fd=20 read=polling write=<idle, bufsize=0>>
 Traceback (most recent call last):
   File "/Users/cv43/.local/share/uv/python/cpython-3.12.12-macos-aarch64-none/lib/python3.12/asyncio/selector_events.py", line 1027, in _read_ready__data_received
@@ -97,9 +75,8 @@ Traceback (most recent call last):
     self.registers.append(struct.unpack(">H", data[idx : idx + 2])[0])
                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 struct.error: unpack requires a buffer of 2 bytes
-2026-02-18 16:09:46,617 - [INFO] - [1micFieldAnalyzer[0m - Connecting to mbtcp server at localhost:5020
-2026-02-18 16:09:46,619 - [ERROR] - [1masyncio[0m - Fatal error: protocol.data_received() call failed.
-protocol: <pymodbus.server.requesthandler.ServerRequestHandler object at 0x10c4e6a20>
+2026-02-19 08:51:00,865 - [ERROR] - [1masyncio[0m - Fatal error: protocol.data_received() call failed.
+protocol: <pymodbus.server.requesthandler.ServerRequestHandler object at 0x1099ce4e0>
 transport: <_SelectorSocketTransport fd=20 read=polling write=<idle, bufsize=0>>
 Traceback (most recent call last):
   File "/Users/cv43/.local/share/uv/python/cpython-3.12.12-macos-aarch64-none/lib/python3.12/asyncio/selector_events.py", line 1027, in _read_ready__data_received
@@ -124,9 +101,8 @@ Traceback (most recent call last):
     self.registers.append(struct.unpack(">H", data[idx : idx + 2])[0])
                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 struct.error: unpack requires a buffer of 2 bytes
-2026-02-18 16:09:46,623 - [INFO] - [1micFieldAnalyzer[0m - Connecting to mbtcp server at localhost:5020
-2026-02-18 16:09:46,626 - [ERROR] - [1masyncio[0m - Fatal error: protocol.data_received() call failed.
-protocol: <pymodbus.server.requesthandler.ServerRequestHandler object at 0x10c4e5100>
+2026-02-19 08:51:00,873 - [ERROR] - [1masyncio[0m - Fatal error: protocol.data_received() call failed.
+protocol: <pymodbus.server.requesthandler.ServerRequestHandler object at 0x1099cff80>
 transport: <_SelectorSocketTransport fd=20 read=polling write=<idle, bufsize=0>>
 Traceback (most recent call last):
   File "/Users/cv43/.local/share/uv/python/cpython-3.12.12-macos-aarch64-none/lib/python3.12/asyncio/selector_events.py", line 1027, in _read_ready__data_received
@@ -151,9 +127,8 @@ Traceback (most recent call last):
     self.registers.append(struct.unpack(">H", data[idx : idx + 2])[0])
                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 struct.error: unpack requires a buffer of 2 bytes
-2026-02-18 16:09:46,630 - [INFO] - [1micFieldAnalyzer[0m - Connecting to mbtcp server at localhost:5020
-2026-02-18 16:09:46,632 - [ERROR] - [1masyncio[0m - Fatal error: protocol.data_received() call failed.
-protocol: <pymodbus.server.requesthandler.ServerRequestHandler object at 0x10c0cef90>
+2026-02-19 08:51:00,881 - [ERROR] - [1masyncio[0m - Fatal error: protocol.data_received() call failed.
+protocol: <pymodbus.server.requesthandler.ServerRequestHandler object at 0x1099cec90>
 transport: <_SelectorSocketTransport fd=20 read=polling write=<idle, bufsize=0>>
 Traceback (most recent call last):
   File "/Users/cv43/.local/share/uv/python/cpython-3.12.12-macos-aarch64-none/lib/python3.12/asyncio/selector_events.py", line 1027, in _read_ready__data_received
@@ -178,9 +153,8 @@ Traceback (most recent call last):
     self.registers.append(struct.unpack(">H", data[idx : idx + 2])[0])
                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 struct.error: unpack requires a buffer of 2 bytes
-2026-02-18 16:09:46,636 - [INFO] - [1micFieldAnalyzer[0m - Connecting to mbtcp server at localhost:5020
-2026-02-18 16:09:46,639 - [ERROR] - [1masyncio[0m - Fatal error: protocol.data_received() call failed.
-protocol: <pymodbus.server.requesthandler.ServerRequestHandler object at 0x10c0ce930>
+2026-02-19 08:51:00,888 - [ERROR] - [1masyncio[0m - Fatal error: protocol.data_received() call failed.
+protocol: <pymodbus.server.requesthandler.ServerRequestHandler object at 0x1099cdfd0>
 transport: <_SelectorSocketTransport fd=20 read=polling write=<idle, bufsize=0>>
 Traceback (most recent call last):
   File "/Users/cv43/.local/share/uv/python/cpython-3.12.12-macos-aarch64-none/lib/python3.12/asyncio/selector_events.py", line 1027, in _read_ready__data_received
@@ -205,9 +179,8 @@ Traceback (most recent call last):
     self.registers.append(struct.unpack(">H", data[idx : idx + 2])[0])
                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 struct.error: unpack requires a buffer of 2 bytes
-2026-02-18 16:09:46,643 - [INFO] - [1micFieldAnalyzer[0m - Connecting to mbtcp server at localhost:5020
-2026-02-18 16:09:46,645 - [ERROR] - [1masyncio[0m - Fatal error: protocol.data_received() call failed.
-protocol: <pymodbus.server.requesthandler.ServerRequestHandler object at 0x10c0ceba0>
+2026-02-19 08:51:00,895 - [ERROR] - [1masyncio[0m - Fatal error: protocol.data_received() call failed.
+protocol: <pymodbus.server.requesthandler.ServerRequestHandler object at 0x1099cec90>
 transport: <_SelectorSocketTransport fd=20 read=polling write=<idle, bufsize=0>>
 Traceback (most recent call last):
   File "/Users/cv43/.local/share/uv/python/cpython-3.12.12-macos-aarch64-none/lib/python3.12/asyncio/selector_events.py", line 1027, in _read_ready__data_received
@@ -232,9 +205,8 @@ Traceback (most recent call last):
     self.registers.append(struct.unpack(">H", data[idx : idx + 2])[0])
                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 struct.error: unpack requires a buffer of 2 bytes
-2026-02-18 16:09:46,649 - [INFO] - [1micFieldAnalyzer[0m - Connecting to mbtcp server at localhost:5020
-2026-02-18 16:09:46,652 - [ERROR] - [1masyncio[0m - Fatal error: protocol.data_received() call failed.
-protocol: <pymodbus.server.requesthandler.ServerRequestHandler object at 0x10c0cc080>
+2026-02-19 08:51:00,902 - [ERROR] - [1masyncio[0m - Fatal error: protocol.data_received() call failed.
+protocol: <pymodbus.server.requesthandler.ServerRequestHandler object at 0x1099ce9c0>
 transport: <_SelectorSocketTransport fd=20 read=polling write=<idle, bufsize=0>>
 Traceback (most recent call last):
   File "/Users/cv43/.local/share/uv/python/cpython-3.12.12-macos-aarch64-none/lib/python3.12/asyncio/selector_events.py", line 1027, in _read_ready__data_received
@@ -259,9 +231,8 @@ Traceback (most recent call last):
     self.registers.append(struct.unpack(">H", data[idx : idx + 2])[0])
                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 struct.error: unpack requires a buffer of 2 bytes
-2026-02-18 16:09:46,909 - [INFO] - [1micFieldAnalyzer[0m - Connecting to mbtcp server at localhost:5020
-2026-02-18 16:09:46,912 - [ERROR] - [1masyncio[0m - Fatal error: protocol.data_received() call failed.
-protocol: <pymodbus.server.requesthandler.ServerRequestHandler object at 0x10c0ce780>
+2026-02-19 08:51:00,911 - [ERROR] - [1masyncio[0m - Fatal error: protocol.data_received() call failed.
+protocol: <pymodbus.server.requesthandler.ServerRequestHandler object at 0x1099ce510>
 transport: <_SelectorSocketTransport fd=20 read=polling write=<idle, bufsize=0>>
 Traceback (most recent call last):
   File "/Users/cv43/.local/share/uv/python/cpython-3.12.12-macos-aarch64-none/lib/python3.12/asyncio/selector_events.py", line 1027, in _read_ready__data_received
@@ -286,9 +257,8 @@ Traceback (most recent call last):
     self.registers.append(struct.unpack(">H", data[idx : idx + 2])[0])
                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 struct.error: unpack requires a buffer of 2 bytes
-2026-02-18 16:09:46,917 - [INFO] - [1micFieldAnalyzer[0m - Connecting to mbtcp server at localhost:5020
-2026-02-18 16:09:46,920 - [ERROR] - [1masyncio[0m - Fatal error: protocol.data_received() call failed.
-protocol: <pymodbus.server.requesthandler.ServerRequestHandler object at 0x10c0cecf0>
+2026-02-19 08:51:00,918 - [ERROR] - [1masyncio[0m - Fatal error: protocol.data_received() call failed.
+protocol: <pymodbus.server.requesthandler.ServerRequestHandler object at 0x1099ce7e0>
 transport: <_SelectorSocketTransport fd=20 read=polling write=<idle, bufsize=0>>
 Traceback (most recent call last):
   File "/Users/cv43/.local/share/uv/python/cpython-3.12.12-macos-aarch64-none/lib/python3.12/asyncio/selector_events.py", line 1027, in _read_ready__data_received
@@ -313,9 +283,8 @@ Traceback (most recent call last):
     self.registers.append(struct.unpack(">H", data[idx : idx + 2])[0])
                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 struct.error: unpack requires a buffer of 2 bytes
-2026-02-18 16:09:46,925 - [INFO] - [1micFieldAnalyzer[0m - Connecting to mbtcp server at localhost:5020
-2026-02-18 16:09:46,928 - [ERROR] - [1masyncio[0m - Fatal error: protocol.data_received() call failed.
-protocol: <pymodbus.server.requesthandler.ServerRequestHandler object at 0x10c0cdd30>
+2026-02-19 08:51:00,925 - [ERROR] - [1masyncio[0m - Fatal error: protocol.data_received() call failed.
+protocol: <pymodbus.server.requesthandler.ServerRequestHandler object at 0x1099cfd10>
 transport: <_SelectorSocketTransport fd=20 read=polling write=<idle, bufsize=0>>
 Traceback (most recent call last):
   File "/Users/cv43/.local/share/uv/python/cpython-3.12.12-macos-aarch64-none/lib/python3.12/asyncio/selector_events.py", line 1027, in _read_ready__data_received
@@ -340,15 +309,14 @@ Traceback (most recent call last):
     self.registers.append(struct.unpack(">H", data[idx : idx + 2])[0])
                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 struct.error: unpack requires a buffer of 2 bytes
-2026-02-18 16:09:46,933 - [INFO] - [1micFieldAnalyzer[0m - Connecting to mbtcp server at localhost:5020
-2026-02-18 16:09:46,933 - [INFO] - [1micFieldAnalyzer[0m -     [!] Field modbus.word_cnt has a large invalid category, marking as CONSTRAINED.
-2026-02-18 16:09:46,933 - [INFO] - [1micFieldAnalyzer[0m - [MUTATION] Field:   [32mRawField: modbus.byte_cnt,   [33mW_Name: modbus.byte_cnt,   [34mLayer: modbus,   [35mD_Name: Byte Count: 4,   [36mPos: 66 (+12),   [31mSize: 1,   [37mBehavior: UNKNOWN,   [32mAccepted: False[0m
-2026-02-18 16:09:46,936 - [INFO] - [1micFieldAnalyzer[0m -     [*] Field modbus.byte_cnt valid values count: 1, largest invalid category size: 0
-2026-02-18 16:09:46,936 - [INFO] - [1micFieldAnalyzer[0m - [MUTATION] Field:   [32mRawField: modbus.regval_uint16,   [33mW_Name: modbus.regval_uint16,   [34mLayer: modbus,   [35mD_Name: Register Value (UINT16): 65535,   [36mPos: 67 (+13),   [31mSize: 2,   [37mBehavior: UNKNOWN,   [32mAccepted: False[0m
-2026-02-18 16:09:46,939 - [INFO] - [1micFieldAnalyzer[0m -     [*] Field modbus.regval_uint16 valid values count: 1, largest invalid category size: 0
-2026-02-18 16:09:46,939 - [INFO] - [1micFieldAnalyzer[0m - [MUTATION] Field:   [32mRawField: modbus.regval_uint16,   [33mW_Name: modbus.regval_uint16,   [34mLayer: modbus,   [35mD_Name: Register Value (UINT16): 65535,   [36mPos: 69 (+15),   [31mSize: 2,   [37mBehavior: UNKNOWN,   [32mAccepted: False[0m
-2026-02-18 16:09:46,941 - [INFO] - [1micFieldAnalyzer[0m -     [*] Field modbus.regval_uint16 valid values count: 1, largest invalid category size: 0
-2026-02-18 16:09:46,942 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,930 - [INFO] - [1micFieldAnalyzer[0m -     [!] Field modbus.word_cnt has a large invalid category, marking as CONSTRAINED.
+2026-02-19 08:51:00,930 - [INFO] - [1micFieldAnalyzer[0m - [MUTATION] Field:   [32mRawField: modbus.byte_cnt,   [33mW_Name: modbus.byte_cnt,   [34mLayer: modbus,   [35mD_Name: Byte Count: 4,   [36mPos: 66 (+12),   [31mSize: 1,   [37mBehavior: UNKNOWN,   [32mAccepted: False[0m
+2026-02-19 08:51:00,933 - [INFO] - [1micFieldAnalyzer[0m -     [*] Field modbus.byte_cnt valid values count: 1, largest invalid category size: 0
+2026-02-19 08:51:00,933 - [INFO] - [1micFieldAnalyzer[0m - [MUTATION] Field:   [32mRawField: modbus.regval_uint16,   [33mW_Name: modbus.regval_uint16,   [34mLayer: modbus,   [35mD_Name: Register Value (UINT16): 65535,   [36mPos: 67 (+13),   [31mSize: 2,   [37mBehavior: UNKNOWN,   [32mAccepted: False[0m
+2026-02-19 08:51:00,936 - [INFO] - [1micFieldAnalyzer[0m -     [*] Field modbus.regval_uint16 valid values count: 1, largest invalid category size: 0
+2026-02-19 08:51:00,936 - [INFO] - [1micFieldAnalyzer[0m - [MUTATION] Field:   [32mRawField: modbus.regval_uint16,   [33mW_Name: modbus.regval_uint16,   [34mLayer: modbus,   [35mD_Name: Register Value (UINT16): 65535,   [36mPos: 69 (+15),   [31mSize: 2,   [37mBehavior: UNKNOWN,   [32mAccepted: False[0m
+2026-02-19 08:51:00,938 - [INFO] - [1micFieldAnalyzer[0m -     [*] Field modbus.regval_uint16 valid values count: 1, largest invalid category size: 0
+2026-02-19 08:51:00,939 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -356,28 +324,28 @@ struct.error: unpack requires a buffer of 2 bytes
     raise NotImplementedException(
 pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse
 
->>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0x10 0x8 0x4f 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
->>>>> send: 0x0 0x54 0x0 0x0 0x0 0x6 0x0 0x10 0x8 0x4f 0x0 0x2
->>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0x10 0x0 0x0 0x77 0x8b 0x4 0xff 0xff 0xff 0xff extra data: 
->>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0x10 0x0 0x0 0xe3 0xae 0x4 0xff 0xff 0xff 0xff extra data: 
->>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0x10 0x0 0x0 0xb7 0x53 0x4 0xff 0xff 0xff 0xff extra data: 
->>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0x10 0x0 0x0 0xb7 0x42 0x4 0xff 0xff 0xff 0xff extra data: 
->>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0x10 0x0 0x0 0x6b 0x2e 0x4 0xff 0xff 0xff 0xff extra data: 
->>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0x10 0x0 0x0 0xe7 0x4a 0x4 0xff 0xff 0xff 0xff extra data: 
->>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0x10 0x0 0x0 0x2e 0xc4 0x4 0xff 0xff 0xff 0xff extra data: 
->>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0x10 0x0 0x0 0x53 0x35 0x4 0xff 0xff 0xff 0xff extra data: 
->>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0x10 0x0 0x0 0x9e 0x39 0x4 0xff 0xff 0xff 0xff extra data: 
->>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0x10 0x0 0x0 0xa 0x9c 0x4 0xff 0xff 0xff 0xff extra data: 
->>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0x10 0x0 0x0 0x66 0x38 0x4 0xff 0xff 0xff 0xff extra data: 
->>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0x10 0x0 0x0 0x0 0x2 0xa3 0xff 0xff 0xff 0xff extra data: 
+>>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0x10 0x9 0x91 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
+>>>>> send: 0x0 0x54 0x0 0x0 0x0 0x6 0x0 0x10 0x9 0x91 0x0 0x2
+>>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0x10 0x0 0x0 0x8f 0x5b 0x4 0xff 0xff 0xff 0xff extra data: 
+>>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0x10 0x0 0x0 0x3a 0xfd 0x4 0xff 0xff 0xff 0xff extra data: 
+>>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0x10 0x0 0x0 0xc5 0x28 0x4 0xff 0xff 0xff 0xff extra data: 
+>>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0x10 0x0 0x0 0xce 0x1a 0x4 0xff 0xff 0xff 0xff extra data: 
+>>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0x10 0x0 0x0 0xb5 0x60 0x4 0xff 0xff 0xff 0xff extra data: 
+>>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0x10 0x0 0x0 0x74 0x3d 0x4 0xff 0xff 0xff 0xff extra data: 
+>>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0x10 0x0 0x0 0x6f 0x95 0x4 0xff 0xff 0xff 0xff extra data: 
+>>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0x10 0x0 0x0 0xcc 0x3b 0x4 0xff 0xff 0xff 0xff extra data: 
+>>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0x10 0x0 0x0 0xbc 0x2b 0x4 0xff 0xff 0xff 0xff extra data: 
+>>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0x10 0x0 0x0 0x56 0x24 0x4 0xff 0xff 0xff 0xff extra data: 
+>>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0x10 0x0 0x0 0x42 0x75 0x4 0xff 0xff 0xff 0xff extra data: 
+>>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0x10 0x0 0x0 0x0 0x2 0x7a 0xff 0xff 0xff 0xff extra data: 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x6 0x0 0x10 0x0 0x0 0x0 0x2
->>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0x10 0x0 0x0 0x0 0x2 0x4 0x1c 0x3e 0xff 0xff extra data: 
+>>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0x10 0x0 0x0 0x0 0x2 0x4 0xdb 0x85 0xff 0xff extra data: 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x6 0x0 0x10 0x0 0x0 0x0 0x2
->>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0x10 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xe5 0x3 extra data: 
+>>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0x10 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0x53 0xe2 extra data: 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x6 0x0 0x10 0x0 0x0 0x0 0x2
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,943 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,943 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,940 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,940 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -387,8 +355,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,943 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,943 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,940 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,940 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -398,8 +366,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,943 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,944 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,940 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,941 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -409,8 +377,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,944 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,944 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,941 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,941 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -420,8 +388,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,944 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,945 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,941 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,942 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -431,8 +399,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,945 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,945 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,942 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,942 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -442,8 +410,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,945 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,945 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,942 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,942 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -453,8 +421,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,945 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,945 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,942 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,943 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -464,8 +432,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,946 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,946 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,943 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,943 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -475,8 +443,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,946 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,946 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,943 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,943 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -486,8 +454,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,946 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,946 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,943 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,943 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -497,8 +465,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,947 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,947 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,944 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,944 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -508,8 +476,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,947 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,947 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,944 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,944 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -519,8 +487,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,947 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,947 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,944 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,944 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -530,8 +498,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,948 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,948 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,944 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,945 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -541,8 +509,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,948 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,948 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,945 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,945 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -552,8 +520,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,948 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,948 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,945 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,946 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -563,8 +531,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,948 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,949 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,946 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,946 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -574,8 +542,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,949 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,949 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,946 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,946 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -585,8 +553,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,949 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,949 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,946 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,947 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -596,8 +564,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,949 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,949 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,947 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,947 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -607,8 +575,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,950 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,950 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,947 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,947 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -618,8 +586,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,950 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,950 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,947 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,947 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -629,8 +597,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,950 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,950 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,947 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,948 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -640,8 +608,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,951 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,951 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,948 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,948 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -651,8 +619,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,951 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,951 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,948 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,948 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -662,8 +630,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,951 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,951 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,948 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,949 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -673,8 +641,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,951 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,952 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,949 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,949 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -684,8 +652,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,952 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,952 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,949 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,949 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -695,8 +663,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,952 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,952 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,949 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,949 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -706,8 +674,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,952 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,952 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,949 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,950 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -717,8 +685,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,953 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,953 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,950 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,950 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -728,8 +696,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,953 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,953 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,950 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,951 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -739,8 +707,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,953 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,953 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,951 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,951 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -750,8 +718,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,953 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,953 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,951 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,952 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -761,8 +729,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,954 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,954 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,952 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,952 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -772,8 +740,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,954 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,954 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,952 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,952 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -783,8 +751,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,954 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,954 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,952 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,953 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -794,8 +762,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,955 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,955 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,953 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,953 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -805,8 +773,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,955 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,955 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,953 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,953 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -816,8 +784,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,955 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,956 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,953 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,954 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -827,8 +795,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,956 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,956 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,954 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,954 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -838,8 +806,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,956 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,956 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,954 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,954 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -849,8 +817,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,956 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,957 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,954 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,954 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -860,8 +828,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,957 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,957 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,954 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,955 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -871,8 +839,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,957 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,957 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,955 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,955 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -882,8 +850,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,957 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,958 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,955 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,955 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -893,8 +861,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,958 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,958 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,955 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,956 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -904,8 +872,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,958 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,958 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,956 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,956 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -915,8 +883,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,958 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,958 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,956 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,956 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -926,8 +894,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,959 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,959 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,956 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,957 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -937,8 +905,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,959 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,959 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,957 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,957 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -948,8 +916,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,960 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,960 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,957 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,957 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -959,8 +927,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,960 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,960 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,957 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,958 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -970,8 +938,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,960 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,961 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,958 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,958 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -981,8 +949,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,961 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,961 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,958 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,958 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -992,8 +960,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,961 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,961 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,958 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,958 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1003,8 +971,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,961 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,962 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,959 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,959 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1014,8 +982,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,962 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,962 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,959 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,959 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1025,8 +993,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,962 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,962 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,959 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,959 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1036,8 +1004,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,962 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,963 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,959 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,960 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1047,8 +1015,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,963 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,963 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,960 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,960 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1058,8 +1026,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,963 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,963 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,960 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,960 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1069,8 +1037,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,963 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,963 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,960 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,961 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1080,8 +1048,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,964 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,964 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,961 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,961 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1091,8 +1059,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,964 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,964 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,961 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,961 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1102,8 +1070,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,964 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,964 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,961 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,962 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1113,8 +1081,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,964 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,965 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,962 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,962 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1124,8 +1092,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,965 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,965 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,962 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,962 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1135,8 +1103,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,965 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,965 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,962 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,962 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1146,8 +1114,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,965 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,965 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,963 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,963 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1157,8 +1125,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,965 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,966 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,963 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,963 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1168,8 +1136,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,966 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,966 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,963 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,963 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1179,8 +1147,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,966 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,966 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,963 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,964 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1190,8 +1158,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,966 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,966 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,964 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,964 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1201,8 +1169,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,966 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,967 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,964 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,964 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1212,8 +1180,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,967 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,967 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,964 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,964 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1223,8 +1191,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,967 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,967 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,964 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,965 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1234,8 +1202,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,967 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,967 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,965 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,965 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1245,8 +1213,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,967 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,968 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,965 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,965 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1256,8 +1224,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,968 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,968 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,965 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,966 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1267,8 +1235,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,968 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,968 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,966 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,967 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1278,8 +1246,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,968 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,968 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,967 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,967 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1289,8 +1257,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,968 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,969 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,967 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,967 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1300,8 +1268,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,969 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,969 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,967 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,968 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1311,8 +1279,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,969 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,969 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,968 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,968 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1322,8 +1290,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,969 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,970 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,968 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,968 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1333,8 +1301,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,970 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,970 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,968 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,968 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1344,8 +1312,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,970 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,970 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,969 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,969 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1355,8 +1323,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,970 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,970 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,969 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,969 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1366,8 +1334,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,971 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,971 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,969 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,969 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1377,8 +1345,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,971 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,971 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,969 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,970 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1388,8 +1356,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,971 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,971 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,970 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,970 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1399,8 +1367,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,971 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,971 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,970 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,970 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1410,8 +1378,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,972 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,972 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,970 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,971 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1421,8 +1389,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,972 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,972 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,971 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,971 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1432,8 +1400,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,972 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,972 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,971 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,971 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1443,8 +1411,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,972 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,973 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,971 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,972 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1454,8 +1422,8 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,973 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,973 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
+2026-02-19 08:51:00,972 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,972 - [ERROR] - [1mymodbus.logging[0m - Datastore unable to fulfill request: Modbus Error: [Not Implemented] update datastore called wrongly ExceptionResponse; Traceback (most recent call last):
   File "/Users/cv43/nyuad/moma/proteus/.venv/lib/python3.12/site-packages/pymodbus/server/requesthandler.py", line 90, in handle_request
     response = await self.last_pdu.datastore_update(self.server.context, self.last_pdu.dev_id)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1465,9 +1433,9 @@ pymodbus.exceptions.NotImplementedException: Modbus Error: [Not Implemented] upd
 
 >>>>> send: 0x0 0x54 0x0 0x0 0x0 0x3 0x0 0xff 0x4
 >>>>> recv: 0x0 0x54 0x0 0x0 0x0 0xb 0x0 0xff 0x0 0x0 0x0 0x2 0x4 0xff 0xff 0xff 0xff extra data: 
-2026-02-18 16:09:46,973 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
-2026-02-18 16:09:46,973 - [INFO] - [1micFieldAnalyzer[0m - Clustering responses for seed: 00540000000b00100000000204ffffffff with 129 responses and 29 requests...
-2026-02-18 16:09:46,977 - [INFO] - [1micFieldAnalyzer[0m - Building plotly visualization with categorized data points
-2026-02-18 16:09:47,026 - [INFO] - [1micFieldAnalyzer[0m - Applying layout styling and displaying plot
-2026-02-18 16:09:47,077 - [INFO] - [1micFieldAnalyzer[0m - Plot summary - Requests: 29, Responses: 129
-2026-02-18 16:09:47,806 - [INFO] - [1m.ProtocolFuzzer[0m - [+] Saved raw fields to outputs/MBTCP_raw_fields.json
+2026-02-19 08:51:00,972 - [INFO] - [1micFieldAnalyzer[0m - Testing func_code mutation: 00540000000b00ff0000000204ffffffff, Response: 00540000000300ff04
+2026-02-19 08:51:00,972 - [INFO] - [1micFieldAnalyzer[0m - Clustering responses for seed: 00540000000b00100000000204ffffffff with 131 responses and 31 requests...
+2026-02-19 08:51:00,976 - [INFO] - [1micFieldAnalyzer[0m - Building plotly visualization with categorized data points
+2026-02-19 08:51:01,024 - [INFO] - [1micFieldAnalyzer[0m - Applying layout styling and displaying plot
+2026-02-19 08:51:01,079 - [INFO] - [1micFieldAnalyzer[0m - Plot summary - Requests: 31, Responses: 131
+2026-02-19 08:51:01,882 - [INFO] - [1m.ProtocolFuzzer[0m - [+] Saved raw fields to outputs/MBTCP_raw_fields.json

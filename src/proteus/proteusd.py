@@ -40,9 +40,20 @@ class ProtocolFuzzer:
     """
 
     def __init__(self, protocol: str) -> None:
-        """Initialize the ProtocolFuzzer with the specified protocol, setting up logging, protocol information, and a packet structure viewer for visualizing the analysis results.
+        """Initialize the ProtocolFuzzer.
 
-        This sets the stage for loading seed packets and performing analysis and fuzzing based on the protocol's characteristics.
+        Args:
+            protocol: The name of the protocol to fuzz (e.g., "mbtcp", "s7comm", "dnp3").
+
+        Returns:
+            None
+
+        Attributes:
+            logger: Custom logger for logging information, warnings, and errors during the fuzzing process.
+            _protocol_info: ProtocolInfo object containing details about the target protocol.
+            _validator: ValidatorBase object for validating seed packets against the protocol specifications.
+            _packet_struct_viewer: PacketStruct object for visualizing the structure of packets and their fields.
+
         """
         self.logger: CustomLogger = cast("CustomLogger", logging.getLogger(f"{self.__class__.__module__}.{self.__class__.__name__}"))
 
@@ -92,35 +103,37 @@ class ProtocolFuzzer:
 
     def _find_structural_variants(self, fields_json: list[RawField]) -> list[str]:
         """Find structural variants by testing different function codes and payload lengths.
-        
+
         Args:
             fields_json: List of raw fields from the seed packet
-            
+
         Returns:
             List of new seed packet hex strings
-            
+
         Raises:
             ValueError: If no suitable pivot field is found
+
         """
         pivot_field = self._find_pivot_field(fields_json)
         length_fields = self._identify_length_fields(fields_json, pivot_field)
         new_seeds = self._generate_variant_candidates(fields_json, pivot_field, length_fields)
-        
+
         # Process new seeds for further analysis (side effects: prints and logs results)
         self._find_structural_variants2(new_seeds, pivot_field)
         return new_seeds
 
     def _find_pivot_field(self, fields: list[RawField]) -> RawField:
         """Identify the pivot field for structural analysis.
-        
+
         Args:
             fields: List of raw fields
-            
+
         Returns:
             The pivot field
-            
+
         Raises:
             ValueError: If no suitable pivot field is found
+
         """
         for field in fields:
             if MODBUS_FUNCTION_CODE_FIELD in field.name:
@@ -130,18 +143,16 @@ class ProtocolFuzzer:
 
     def _identify_length_fields(self, fields: list[RawField], pivot_field: RawField) -> list[RawField]:
         """Identify length fields that appear before the pivot field.
-        
+
         Args:
             fields: List of raw fields
             pivot_field: The pivot field for analysis
-            
+
         Returns:
             List of length fields
+
         """
-        return [
-            f for f in fields
-            if f.behavior == FieldBehavior.CONSTRAINED and f.relative_pos < pivot_field.relative_pos
-        ]
+        return [f for f in fields if f.behavior == FieldBehavior.CONSTRAINED and f.relative_pos < pivot_field.relative_pos]
 
     def _generate_variant_candidates(
         self,
@@ -150,14 +161,15 @@ class ProtocolFuzzer:
         length_fields: list[RawField],
     ) -> list[str]:
         """Generate candidate packets with different pivot values and payload lengths.
-        
+
         Args:
             fields: List of raw fields
             pivot_field: The pivot field to mutate
             length_fields: List of length fields to update
-            
+
         Returns:
             List of valid candidate packet hex strings
+
         """
         new_seeds: list[str] = []
 
@@ -173,7 +185,7 @@ class ProtocolFuzzer:
                 # Fix length fields to match current packet size
                 for len_field in length_fields:
                     candidate_pkt = PacketManipulator.fix_length_field(candidate_pkt, len_field)
-                
+
                 # Validate after all length fields have been fixed
                 try:
                     self._validate_seed(DEFAULT_HOST, DEFAULT_PORT, candidate_pkt)
@@ -206,17 +218,18 @@ class ProtocolFuzzer:
 
     def _validate_seed(self, target_ip: str, target_port: int, seed_bytes: bytes) -> dict:
         """Validate a seed packet by sending it to the server and checking the response.
-        
+
         Args:
             target_ip: Target server IP address
             target_port: Target server port
             seed_bytes: Seed packet bytes to validate
-            
+
         Returns:
             Validation result dictionary
-            
+
         Raises:
             ValueError: If the response is invalid
+
         """
         with SocketManager(target_ip, target_port, timeout=VALIDATION_TIMEOUT) as sock_mgr:
             sock_mgr.send(seed_bytes)
